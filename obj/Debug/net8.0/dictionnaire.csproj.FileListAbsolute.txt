@@ -1,0 +1,14 @@
+/Users/perrine/Desktop/M2/S1/POO/dictionnaire/obj/Debug/net8.0/dictionnaire.GeneratedMSBuildEditorConfig.editorconfig
+/Users/perrine/Desktop/M2/S1/POO/dictionnaire/obj/Debug/net8.0/dictionnaire.AssemblyInfoInputs.cache
+/Users/perrine/Desktop/M2/S1/POO/dictionnaire/obj/Debug/net8.0/dictionnaire.AssemblyInfo.cs
+/Users/perrine/Desktop/M2/S1/POO/dictionnaire/obj/Debug/net8.0/dictionnaire.csproj.CoreCompileInputs.cache
+/Users/perrine/Desktop/M2/S1/POO/dictionnaire/bin/Debug/net8.0/dictionnaire
+/Users/perrine/Desktop/M2/S1/POO/dictionnaire/bin/Debug/net8.0/dictionnaire.deps.json
+/Users/perrine/Desktop/M2/S1/POO/dictionnaire/bin/Debug/net8.0/dictionnaire.runtimeconfig.json
+/Users/perrine/Desktop/M2/S1/POO/dictionnaire/bin/Debug/net8.0/dictionnaire.dll
+/Users/perrine/Desktop/M2/S1/POO/dictionnaire/bin/Debug/net8.0/dictionnaire.pdb
+/Users/perrine/Desktop/M2/S1/POO/dictionnaire/obj/Debug/net8.0/dictionnaire.dll
+/Users/perrine/Desktop/M2/S1/POO/dictionnaire/obj/Debug/net8.0/refint/dictionnaire.dll
+/Users/perrine/Desktop/M2/S1/POO/dictionnaire/obj/Debug/net8.0/dictionnaire.pdb
+/Users/perrine/Desktop/M2/S1/POO/dictionnaire/obj/Debug/net8.0/dictionnaire.genruntimeconfig.cache
+/Users/perrine/Desktop/M2/S1/POO/dictionnaire/obj/Debug/net8.0/ref/dictionnaire.dll
