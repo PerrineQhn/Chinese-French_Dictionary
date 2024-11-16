@@ -1,56 +1,65 @@
 public class CommandInterpreter
 {
-    // private string command;
-
-    // public CommandInterpreter(string command)
-    // {
-    //     this.command = command;
-    // }
+    private SaveResearch saveResearch = new SaveResearch();
 
     public void Interpret(string[] arguments)
     {
         if (arguments.Length > 0)
-        {  
+        {
             string command = arguments[0];
 
-            if (command == "GetSinogram")
+            if (arguments.Length > 1)
             {
-                GetSinogramCommand cmd = new GetSinogramCommand();
-                cmd.GetSimplifier(arguments[1]);
-            }
+                string word = arguments[1];
+                string result = string.Empty;
 
-            if (command == "GetTraditional")
+                switch (command)
+                {
+                    case "GetSinogram":
+                        GetSinogramCommand sinogramCmd = new GetSinogramCommand();
+                        result = sinogramCmd.GetSimplifier(word); // Capture le résultat
+                        break;
+
+                    case "GetTraditional":
+                        GetTraditionalCommand traditionalCmd = new GetTraditionalCommand();
+                        result = traditionalCmd.GetTraditional(word); // Capture le résultat
+                        break;
+
+                    case "GetFrench":
+                        GetFrenchCommand frenchCmd = new GetFrenchCommand();
+                        result = frenchCmd.Traduction(word); // Capture le résultat
+                        break;
+
+                    case "Pinyin":
+                        GetPinyinCommand pinyinCmd = new GetPinyinCommand();
+                        result = pinyinCmd.GetPinyin(word); // Capture le résultat
+                        break;
+
+                    case "GetAllInformation":
+                        GetAllInformationCommand allInfoCmd = new GetAllInformationCommand();
+                        result = allInfoCmd.GetAllInformation(word); // Capture le résultat
+                        break;
+
+                    default:
+                        Console.WriteLine("Commande inconnue.");
+                        return;
+                }
+
+                // Sauvegarder la recherche et le résultat
+                saveResearch.Save(command, word, result);
+            }
+            else
             {
-                GetTraditionalCommand cmd = new GetTraditionalCommand();
-                cmd.GetTraditional(arguments[1]);
+                Console.WriteLine("Argument manquant. Veuillez entrer un mot après la commande.");
             }
-
-            if (command == "GetFrench")
-            {
-                GetFrenchCommand cmd = new GetFrenchCommand();
-                cmd.Traduction(arguments[1]);
-            }
-
-            if (command == "Pinyin")
-            {
-                GetPinyinCommand cmd = new GetPinyinCommand();
-                cmd.GetPinyin(arguments[1]);
-            }
-
-            if (command == "GetAllInformation")
-            {
-                GetAllInformationCommand cmd = new GetAllInformationCommand();
-                cmd.GetAllInformation(arguments[1]);
-            }
-
         }
-
         else
         {
-            Console.WriteLine("Entrer un argument parmi les suivants : GetSinogram, GetTraditional, GetFrench, Definition");
-            Console.WriteLine("Exemple : dotnet run GetSinogram bonjour");
-            Console.WriteLine("Exemple : dotnet run GetFrench 你好");
-            Console.WriteLine("Exemple : dotnet run Definition bonjour");
+            Console.WriteLine("Aucune commande spécifiée.");
         }
+
+        Console.WriteLine("\nOptions disponibles : GetSinogram, GetTraditional, GetFrench, Pinyin, GetAllInformation");
+        Console.WriteLine("Exemple : GetSinogram bonjour");
+        Console.WriteLine("Exemple : GetFrench 你好");
     }
 }

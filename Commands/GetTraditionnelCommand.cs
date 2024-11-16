@@ -1,18 +1,22 @@
 public class GetTraditionalCommand
 {
-    public void GetTraditional(string chineseWord)
+    public string GetTraditional(string chineseWord)
     {
         Dictionnaire dictionnaire = new Dictionnaire();
-        
         var data = dictionnaire.ObtenirDonneesDictionnaire();
 
         foreach (var entry in data)
         {
-            if (entry["Simplifier"] == chineseWord || entry["Pinyin"] == chineseWord)
+            if (entry["Simpl"] == chineseWord || entry["Pinyin"] == chineseWord)
             {
-                Console.WriteLine($"Le sinogramme traditionnel pour {chineseWord} est : {entry["Traditionnel"]}");
+                string result = $"Caractère traditionnel pour '{chineseWord}' : {entry["Trad"]}";
+                Console.WriteLine(result);
+                return result;
             }
-        }   
-        
+        }
+
+        string noResultMessage = $"Aucun caractère traditionnel trouvé pour '{chineseWord}'.";
+        Console.WriteLine(noResultMessage);
+        return noResultMessage;
     }
 }

@@ -1084,19 +1084,19 @@
     ]
   },
   "packageFolders": {
-    "/Users/perrine/.nuget/packages/": {}
+    "/Users/perrineqhn/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/perrine/Desktop/M2/S1/POO/dictionnaire/dictionnaire.csproj",
+      "projectUniqueName": "/Users/perrineqhn/Desktop/M2/S1/POO/Chinese-French_Dictionary/dictionnaire.csproj",
       "projectName": "dictionnaire",
-      "projectPath": "/Users/perrine/Desktop/M2/S1/POO/dictionnaire/dictionnaire.csproj",
-      "packagesPath": "/Users/perrine/.nuget/packages/",
-      "outputPath": "/Users/perrine/Desktop/M2/S1/POO/dictionnaire/obj/",
+      "projectPath": "/Users/perrineqhn/Desktop/M2/S1/POO/Chinese-French_Dictionary/dictionnaire.csproj",
+      "packagesPath": "/Users/perrineqhn/.nuget/packages/",
+      "outputPath": "/Users/perrineqhn/Desktop/M2/S1/POO/Chinese-French_Dictionary/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "/Users/perrine/.nuget/NuGet/NuGet.Config"
+        "/Users/perrineqhn/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net8.0"
@@ -1146,7 +1146,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.401/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.404/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

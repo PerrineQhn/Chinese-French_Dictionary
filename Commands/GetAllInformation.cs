@@ -1,47 +1,41 @@
 public class GetAllInformationCommand
 {
-    public void GetAllInformation(string Word)
+    public string GetAllInformation(string Word)
     {
         Dictionnaire dictionnaire = new Dictionnaire();
         
         var data = dictionnaire.ObtenirDonneesDictionnaire();
+        
         bool found = false;
 
         foreach (var entry in data)
         {
-            if (entry["Simplifier"] == Word)
+            if (entry["Caractère Simplifié"] == Word)
             {
-                Console.WriteLine($"Informations pour {Word} :");
-                Console.WriteLine($"Le sinogramme traditionnel est : {entry["Traditionnel"]}");
-                Console.WriteLine($"Le pinyin : {entry["Pinyin"]}");
-                Console.WriteLine($"La traduction : {entry["Traduction"]}");
+
+                string result = $"Informations pour {Word} :\nLe sinogramme traditionnel est : {entry["Caractère Traditionnel"]}\nLe pinyin : {entry["Pinyin"]}\nLa traduction : {entry["Traduction"]}";
+                Console.WriteLine(result);
                 found = true;
                 break;
             }
             else if (entry["Traduction"] == Word)
             {
-                Console.WriteLine($"Informations pour {Word} :");
-                Console.WriteLine($"Le sinogramme traditionnel est : {entry["Traditionnel"]}");
-                Console.WriteLine($"Le pinyin : {entry["Pinyin"]}");
-                Console.WriteLine($"Le sinogramme simplifié : {entry["Simplifier"]}");
+                string result = $"Informations pour {Word} :\nLe sinogramme traditionnel est : {entry["Caractère Traditionnel"]}\nLe pinyin : {entry["Pinyin"]}\nLe sinogramme simplifié : {entry["Caractère Simplifié"]}";
+                Console.WriteLine(result);
                 found = true;
                 break;
             }
             else if (entry["Pinyin"] == Word)
             {
-                Console.WriteLine($"Informations pour {Word} :");
-                Console.WriteLine($"Le sinogramme traditionnel est : {entry["Traditionnel"]}");
-                Console.WriteLine($"La traduction : {entry["Traduction"]}");
-                Console.WriteLine($"Le sinogramme simplifié : {entry["Simplifier"]}");
+                string result = $"Le sinogramme traditionnel est : {entry["Caractère Traditionnel"]}\nLa traduction : {entry["Traduction"]}\nLe sinogramme simplifié : {entry["Caractère Simplifié"]}";
+                Console.WriteLine(result);
                 found = true;
                 break;
             }
-            else if (entry["Traditionnel"] == Word)
+            else if (entry["Caractère Traditionnel"] == Word)
             {
-                Console.WriteLine($"Informations pour {Word} :");
-                Console.WriteLine($"Le pinyin : {entry["Pinyin"]}");
-                Console.WriteLine($"La traduction : {entry["Traduction"]}");
-                Console.WriteLine($"Le sinogramme simplifié : {entry["Simplifier"]}");
+                string result = $"Informations pour {Word} :\nLe pinyin : {entry["Pinyin"]}\nLa traduction : {entry["Traduction"]}\nLe sinogramme simplifié : {entry["Caractère Simplifié"]}";
+                Console.WriteLine(result);
                 found = true;
                 break;
             }
@@ -51,5 +45,8 @@ public class GetAllInformationCommand
         {
             Console.WriteLine("Aucune information trouvée pour ce mot.");
         }
+
+        string message = $"Aucune information trouvée pour '{Word}'.";
+        return message;
     }
 }

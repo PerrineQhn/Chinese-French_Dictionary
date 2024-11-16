@@ -2,7 +2,7 @@ public class GetFrenchCommand
 {
     // Récupere la traduction française d'un mot chinois donné en argument
 
-    public void Traduction(string chineseWord)
+    public string Traduction(string chineseWord)
     {
         Dictionnaire dictionnaire = new Dictionnaire();
         
@@ -10,11 +10,17 @@ public class GetFrenchCommand
 
         foreach (var entry in data)
         {
-            if (entry["Simplifier"] == chineseWord || entry["Traditionnel"] == chineseWord || entry["Pinyin"] == chineseWord)
+            if (entry["Simpl"] == chineseWord || entry["Trad"] == chineseWord || entry["Pinyin"] == chineseWord)
             {
-                Console.WriteLine($"La traduction française pour {chineseWord} est : {entry["Traduction"]}");
+                string result = $"Traduction française pour '{chineseWord}' : {entry["Translations"]}";
+                Console.WriteLine(result);
+                return result;
             }
         }   
+        string message = $"Aucune traduction trouvée pour '{chineseWord}'.";
+        Console.WriteLine(message);
+        return message;
         
     }
+
 }

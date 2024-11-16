@@ -1,6 +1,6 @@
 public class GetPinyinCommand
 {
-    public void GetPinyin(string chineseWord)
+    public string GetPinyin(string chineseWord)
     {
         Dictionnaire dictionnaire = new Dictionnaire();
         
@@ -8,10 +8,15 @@ public class GetPinyinCommand
 
         foreach (var entry in data)
         {
-            if (entry["Simplifier"] == chineseWord || entry["Traditionnel"] == chineseWord)
+            if (entry["Simpl"] == chineseWord || entry["Trad"] == chineseWord)
             {
-                Console.WriteLine($"Le pinyin pour {chineseWord} est : {entry["Pinyin"]}");
+                string result = $"Pinyin pour '{chineseWord}' : {entry["Pinyin"]}";
+                Console.WriteLine(result);
+                return result;
             }
         }   
+        string message = $"Aucun Pinyin trouvé pour '{chineseWord}'.";
+        Console.WriteLine(message);
+        return message;
     }
 }

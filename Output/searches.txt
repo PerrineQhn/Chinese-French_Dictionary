@@ -1,0 +1,8 @@
+16/11/2024 16:32:17: Commande = GetSinogram, Mot = bonjour
+Résultat : (你好, ni3 hao3)
+(哈啰, ha1 luo1)
+(大家好, da4 jia1 hao3)
+(您好, nin2 hao3)
+(招呼, zhao1 hu5)
+(问好, wen4 hao3)
+--------------------------------------------------
