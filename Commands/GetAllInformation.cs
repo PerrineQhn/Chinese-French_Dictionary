@@ -1,52 +1,48 @@
-public class GetAllInformationCommand
+namespace DictionnaireZhFR;
+public class GetAllInformationCommand : CommandBase
 {
-    public string GetAllInformation(string Word)
+
+    public override string Execute(string word)
     {
-        Dictionnaire dictionnaire = new Dictionnaire();
-        
         var data = dictionnaire.ObtenirDonneesDictionnaire();
-        
-        bool found = false;
 
         foreach (var entry in data)
         {
-            if (entry["Caractère Simplifié"] == Word)
-            {
+            ChineseCharacterType type;
 
-                string result = $"Informations pour {Word} :\nLe sinogramme traditionnel est : {entry["Caractère Traditionnel"]}\nLe pinyin : {entry["Pinyin"]}\nLa traduction : {entry["Traduction"]}";
-                Console.WriteLine(result);
-                found = true;
-                break;
-            }
-            else if (entry["Traduction"] == Word)
+            if (entry["Caractère Simplifié"] == word)
             {
-                string result = $"Informations pour {Word} :\nLe sinogramme traditionnel est : {entry["Caractère Traditionnel"]}\nLe pinyin : {entry["Pinyin"]}\nLe sinogramme simplifié : {entry["Caractère Simplifié"]}";
-                Console.WriteLine(result);
-                found = true;
-                break;
-            }
-            else if (entry["Pinyin"] == Word)
-            {
-                string result = $"Le sinogramme traditionnel est : {entry["Caractère Traditionnel"]}\nLa traduction : {entry["Traduction"]}\nLe sinogramme simplifié : {entry["Caractère Simplifié"]}";
-                Console.WriteLine(result);
-                found = true;
-                break;
-            }
-            else if (entry["Caractère Traditionnel"] == Word)
-            {
-                string result = $"Informations pour {Word} :\nLe pinyin : {entry["Pinyin"]}\nLa traduction : {entry["Traduction"]}\nLe sinogramme simplifié : {entry["Caractère Simplifié"]}";
-                Console.WriteLine(result);
-                found = true;
-                break;
-            }
+                type = ChineseCharacterType.Simplified;
+                Console.WriteLine($"Type de caractère analysé : {type}");
 
-        }   
-        if (!found)
-        {
-            Console.WriteLine("Aucune information trouvée pour ce mot.");
+                return $"Informations pour {word} :\nLe sinogramme traditionnel est : {entry["Caractère Traditionnel"]}\nLe pinyin : {entry["Pinyin"]}\nLa traduction : {entry["Traduction"]}";
+            }
+            else if (entry["Traduction"] == word)
+            {
+                type = ChineseCharacterType.FrenchTranslation;
+                Console.WriteLine($"Type de caractère analysé : {type}");
+
+                return $"Informations pour {word} :\nLe sinogramme traditionnel est : {entry["Caractère Traditionnel"]}\nLe pinyin : {entry["Pinyin"]}\nLe sinogramme simplifié : {entry["Caractère Simplifié"]}";
+            }
+            else if (entry["Pinyin"] == word)
+            {
+                type = ChineseCharacterType.Pinyin;
+                Console.WriteLine($"Type de caractère analysé : {type}");
+
+                return $"Le sinogramme traditionnel est : {entry["Caractère Traditionnel"]}\nLa traduction : {entry["Traduction"]}\nLe sinogramme simplifié : {entry["Caractère Simplifié"]}";
+            }
+            else if (entry["Caractère Traditionnel"] == word)
+            {
+                type = ChineseCharacterType.Traditional;
+                Console.WriteLine($"Type de caractère analysé : {type}");
+
+                return $"Informations pour {word} :\nLe pinyin : {entry["Pinyin"]}\nLa traduction : {entry["Traduction"]}\nLe sinogramme simplifié : {entry["Caractère Simplifié"]}";
+            }
         }
 
-        string message = $"Aucune information trouvée pour '{Word}'.";
+        // Si aucun résultat n'est trouvé
+        string message = $"Aucune information trouvée pour '{word}'.";
+        Console.WriteLine(message);
         return message;
     }
 }

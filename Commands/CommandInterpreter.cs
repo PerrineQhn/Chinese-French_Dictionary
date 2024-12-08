@@ -1,3 +1,4 @@
+namespace DictionnaireZhFR;
 public class CommandInterpreter
 {
     private SaveResearch saveResearch = new SaveResearch();
@@ -13,31 +14,28 @@ public class CommandInterpreter
                 string word = arguments[1];
                 string result = string.Empty;
 
+                CommandBase commandInstance;
+
                 switch (command)
                 {
                     case "GetSinogram":
-                        GetSinogramCommand sinogramCmd = new GetSinogramCommand();
-                        result = sinogramCmd.GetSimplifier(word); // Capture le résultat
+                        commandInstance = new GetSinogramCommand();
                         break;
 
                     case "GetTraditional":
-                        GetTraditionalCommand traditionalCmd = new GetTraditionalCommand();
-                        result = traditionalCmd.GetTraditional(word); // Capture le résultat
+                        commandInstance = new GetTraditionalCommand();
                         break;
 
                     case "GetFrench":
-                        GetFrenchCommand frenchCmd = new GetFrenchCommand();
-                        result = frenchCmd.Traduction(word); // Capture le résultat
+                        commandInstance = new GetFrenchCommand();
                         break;
 
                     case "Pinyin":
-                        GetPinyinCommand pinyinCmd = new GetPinyinCommand();
-                        result = pinyinCmd.GetPinyin(word); // Capture le résultat
+                        commandInstance = new GetPinyinCommand();
                         break;
 
                     case "GetAllInformation":
-                        GetAllInformationCommand allInfoCmd = new GetAllInformationCommand();
-                        result = allInfoCmd.GetAllInformation(word); // Capture le résultat
+                        commandInstance = new GetAllInformationCommand();
                         break;
 
                     default:
@@ -45,21 +43,37 @@ public class CommandInterpreter
                         return;
                 }
 
-                // Sauvegarder la recherche et le résultat
-                saveResearch.Save(command, word, result);
+                /// Exécuter la commande via la méthode Execute
+                result = commandInstance.Execute(word);
+
+                // Demander à l'utilisateur s'il veut sauvegarder la recherche
+                Console.WriteLine("Voulez-vous sauvegarder cette recherche ? (oui/non)");
+                string userInput = Console.ReadLine()?.Trim().ToLower();
+
+                if (userInput == "oui" || userInput == "o" || userInput == "y" || userInput == "yes")
+                {
+                    // Sauvegarder la recherche et le résultat
+                    saveResearch.Save(command, word, result);
+                    Console.WriteLine("Recherche sauvegardée avec succès dans Output/searches.txt.");
+                }
+                else
+                {
+                    Console.WriteLine("Recherche non sauvegardée.");
+                }
             }
             else
             {
                 Console.WriteLine("Argument manquant. Veuillez entrer un mot après la commande.");
             }
         }
+
         else
         {
             Console.WriteLine("Aucune commande spécifiée.");
+            Console.WriteLine("\nOptions disponibles : GetSinogram, GetTraditional, GetFrench, Pinyin, GetAllInformation");
+            Console.WriteLine("Exemple : GetSinogram bonjour");
+            Console.WriteLine("Exemple : GetFrench 你好");
         }
-
-        Console.WriteLine("\nOptions disponibles : GetSinogram, GetTraditional, GetFrench, Pinyin, GetAllInformation");
-        Console.WriteLine("Exemple : GetSinogram bonjour");
-        Console.WriteLine("Exemple : GetFrench 你好");
     }
+
 }

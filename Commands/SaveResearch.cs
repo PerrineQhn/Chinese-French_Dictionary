@@ -1,5 +1,4 @@
-using System;
-using System.IO;
+namespace DictionnaireZhFR;
 
 public class SaveResearch
 {

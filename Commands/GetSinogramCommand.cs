@@ -1,35 +1,39 @@
-public class GetSinogramCommand
+namespace DictionnaireZhFR
 {
-    // Récupere le sinogramme d'un mot français donné en argument
-    
-    public string GetSimplifier(string frenchWord)
+    public class GetSinogramCommand : CommandBase
     {
-        Dictionnaire dictionnaire = new Dictionnaire();
-        
-        Console.WriteLine("Recherche du sinogramme...");
-
-        var data = dictionnaire.ObtenirDonneesDictionnaire();
-
-        List<(string Sinogram, string Pinyin)> sinograms = new List<(string, string)>();
-
-        foreach (var entry in data)
+        public override string Execute(string frenchWord)
         {
-            
-            if (entry["Translations"].Contains(frenchWord))
+            var data = dictionnaire.ObtenirDonneesDictionnaire();
+
+            List<WordInfo> results = new List<WordInfo>();
+
+            foreach (var entry in data)
             {
-                sinograms.Add((entry["Simpl"], entry["Pinyin"]));
+                if (entry["Translations"].Contains(frenchWord))
+                {
+                    // Créer une instance de WordInfo pour chaque résultat correspondant
+                    var wordInfo = new WordInfo(
+                        entry["Simpl"], 
+                        entry["Trad"], 
+                        entry["Pinyin"], 
+                        entry["Translations"]
+                    );
+                    results.Add(wordInfo);
+                }
             }
 
-        }
-        if (sinograms.Count == 0)
-        {
-            string message = $"Aucun sinogramme trouvé pour '{frenchWord}'.";
-            Console.WriteLine(message);
-            return message;
-        }
+            if (results.Count == 0)
+            {
+                string message = $"Aucun sinogramme trouvé pour '{frenchWord}'.";
+                Console.WriteLine(message);
+                return message;
+            }
 
-        string result = string.Join("\n", sinograms);
-        Console.WriteLine($"Sinogrammes trouvés pour '{frenchWord}':\n{result}");
-        return result;
+            // Générer un message contenant tous les résultats trouvés
+            string output = string.Join("\n", results.Select(w => w.ToString()));
+            Console.WriteLine($"Sinogrammes trouvés pour '{frenchWord}':\n{output}");
+            return output;
+        }
     }
 }

@@ -1,11 +1,8 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
 using System.Text.Json;
-
+namespace DictionnaireZhFR;
 class JSONReader
 {
-    public static List<Dictionary<string, string>> ReadJSON(string jsonFilePath)
+    public List<Dictionary<string, string>> ReadJSON(string jsonFilePath)
     {
         var records = new List<Dictionary<string, string>>();
 

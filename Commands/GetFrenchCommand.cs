@@ -1,26 +1,32 @@
-public class GetFrenchCommand
+namespace DictionnaireZhFR
 {
-    // Récupere la traduction française d'un mot chinois donné en argument
-
-    public string Traduction(string chineseWord)
+    public class GetFrenchCommand : CommandBase
     {
-        Dictionnaire dictionnaire = new Dictionnaire();
-        
-        var data = dictionnaire.ObtenirDonneesDictionnaire();
-
-        foreach (var entry in data)
+        public override string Execute(string chineseWord)
         {
-            if (entry["Simpl"] == chineseWord || entry["Trad"] == chineseWord || entry["Pinyin"] == chineseWord)
-            {
-                string result = $"Traduction française pour '{chineseWord}' : {entry["Translations"]}";
-                Console.WriteLine(result);
-                return result;
-            }
-        }   
-        string message = $"Aucune traduction trouvée pour '{chineseWord}'.";
-        Console.WriteLine(message);
-        return message;
-        
-    }
+            var data = dictionnaire.ObtenirDonneesDictionnaire();
 
+            foreach (var entry in data)
+            {
+                if (entry["Simpl"] == chineseWord || entry["Trad"] == chineseWord || entry["Pinyin"] == chineseWord)
+                {
+                    // Créer une instance de WordInfo pour la correspondance trouvée
+                    var wordInfo = new WordInfo(
+                        entry["Simpl"],
+                        entry["Trad"],
+                        entry["Pinyin"],
+                        entry["Translations"]
+                    );
+
+                    string result = $"Traduction française pour '{chineseWord}': {wordInfo.Translations}";
+                    Console.WriteLine(result);
+                    return result;
+                }
+            }
+
+            string message = $"Aucune traduction trouvée pour '{chineseWord}'.";
+            Console.WriteLine(message);
+            return message;
+        }
+    }
 }

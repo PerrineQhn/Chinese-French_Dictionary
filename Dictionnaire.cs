@@ -1,19 +1,17 @@
-using System;
-using System.Collections.Generic;
-
-class Dictionnaire
+namespace DictionnaireZhFR;
+public class Dictionnaire
 {
     public List<Dictionary<string, string>> ObtenirDonneesDictionnaire()
     {
         string filePath = "Data/cfdict.json";
 
         // Appel à JSONReader pour lire et traiter le fichier JSON
-        var data = JSONReader.ReadJSON(filePath);
+        JSONReader reader = new JSONReader();
+        var data = reader.ReadJSON(filePath);
 
         if (data == null || data.Count == 0)
         {
-            Console.WriteLine("Aucune donnée trouvée dans le fichier JSON.");
-            return new List<Dictionary<string, string>>();
+            throw new DictionnaireException("Le dictionnaire est vide ou introuvable.");
         }
 
         // Débogage (optionnel)

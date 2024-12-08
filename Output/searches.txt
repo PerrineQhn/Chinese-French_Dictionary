@@ -6,3 +6,14 @@ Résultat : (你好, ni3 hao3)
 (招呼, zhao1 hu5)
 (问好, wen4 hao3)
 --------------------------------------------------
+08/12/2024 20:40:01: Commande = GetSinogram, Mot = 你好
+Résultat : Aucun sinogramme trouvé pour '你好'.
+--------------------------------------------------
+08/12/2024 20:40:15: Commande = GetSinogram, Mot = bonjour
+Résultat : Simplified: 你好, Traditional: 你好, Pinyin: ni3 hao3, Translations: bonjour (à toi), salut, comment vas-tu, tu es très...
+Simplified: 哈啰, Traditional: 哈囉, Pinyin: ha1 luo1, Translations: (anglicisme) hello, bonjour, salut
+Simplified: 大家好, Traditional: 大傢好, Pinyin: da4 jia1 hao3, Translations: bonjour tout le monde
+Simplified: 您好, Traditional: 您好, Pinyin: nin2 hao3, Translations: bonjour (respectueux : 2e personne du pluriel)
+Simplified: 招呼, Traditional: 招呼, Pinyin: zhao1 hu5, Translations: appeler, saluer, dire bonjour
+Simplified: 问好, Traditional: 問好, Pinyin: wen4 hao3, Translations: dire bonjour
+--------------------------------------------------
