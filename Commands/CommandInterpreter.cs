@@ -3,14 +3,18 @@ public class CommandInterpreter
 {
     private SaveResearch saveResearch = new SaveResearch();
 
-    public void Interpret(string[] arguments)
-    {
+    public void Interpret(string input)
+        {
+            // Divise l'entrée en arguments en utilisant '\t' comme séparateur
+            string[] arguments = input.Split('\t');
+
         if (arguments.Length > 0)
         {
             string command = arguments[0];
 
             if (arguments.Length > 1)
             {
+                // Combine tous les arguments après la commande en une seule chaîne
                 string word = arguments[1];
                 string result = string.Empty;
 
@@ -30,7 +34,7 @@ public class CommandInterpreter
                         commandInstance = new GetFrenchCommand();
                         break;
 
-                    case "Pinyin":
+                    case "GetPinyin":
                         commandInstance = new GetPinyinCommand();
                         break;
 
@@ -43,7 +47,7 @@ public class CommandInterpreter
                         return;
                 }
 
-                /// Exécuter la commande via la méthode Execute
+                // Exécuter la commande via la méthode Execute
                 result = commandInstance.Execute(word);
 
                 // Demander à l'utilisateur s'il veut sauvegarder la recherche
@@ -74,6 +78,7 @@ public class CommandInterpreter
             Console.WriteLine("Exemple : GetSinogram bonjour");
             Console.WriteLine("Exemple : GetFrench 你好");
         }
+
     }
 
 }
