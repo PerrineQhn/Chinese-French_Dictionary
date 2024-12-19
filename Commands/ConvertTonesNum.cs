@@ -1,10 +1,13 @@
 namespace DictionnaireZhFR;
 
-public static class PinyinUtils
+public class PinyinUtils
 {
-    public static string ConvertNumericPinyinToAccented(string numericPinyin)
+    private readonly Dictionary<char, string[]> _toneMapping;
+
+    // Constructeur pour initialiser le dictionnaire de mapping
+    public PinyinUtils()
     {
-        var toneMapping = new Dictionary<char, string[]>
+        _toneMapping = new Dictionary<char, string[]>
         {
             { 'a', new[] { "ā", "á", "ǎ", "à" } },
             { 'o', new[] { "ō", "ó", "ǒ", "ò" } },
@@ -13,9 +16,12 @@ public static class PinyinUtils
             { 'u', new[] { "ū", "ú", "ǔ", "ù" } },
             { 'ü', new[] { "ǖ", "ǘ", "ǚ", "ǜ" } }
         };
+    }
 
+    public string ConvertNumericPinyinToAccented(string numericPinyin)
+    {
         // Découpe le pinyin en syllabes
-        var syllables = numericPinyin.Split(' ');
+        string[] syllables = numericPinyin.Split(' ');
 
         for (int i = 0; i < syllables.Length; i++)
         {
@@ -26,12 +32,12 @@ public static class PinyinUtils
             {
                 int toneIndex = int.Parse(tone.ToString()) - 1; // Convertir en index (0-4)
 
-                foreach (var vowel in toneMapping.Keys)
+                foreach (char vowel in _toneMapping.Keys)
                 {
                     if (syllable.Contains(vowel))
                     {
                         // Remplace la première voyelle trouvée par sa version accentuée
-                        syllables[i] = syllable.Replace(vowel.ToString(), toneMapping[vowel][toneIndex]);
+                        syllables[i] = syllable.Replace(vowel.ToString(), _toneMapping[vowel][toneIndex]);
                         break;
                     }
                 }
@@ -45,7 +51,7 @@ public static class PinyinUtils
         return string.Join(" ", syllables);
     }
 
-    public static string RemovePinyinTones(string pinyin)
+    public string RemovePinyinTones(string pinyin)
     {
         return pinyin
             .Replace("ā", "a").Replace("á", "a").Replace("ǎ", "a").Replace("à", "a")

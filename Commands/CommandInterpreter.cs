@@ -4,9 +4,9 @@ public class CommandInterpreter
     private SaveResearch saveResearch = new SaveResearch();
 
     public void Interpret(string input)
-        {
-            // Divise l'entrée en arguments en utilisant '\t' comme séparateur
-            string[] arguments = input.Split('\t');
+    {
+        // Divise l'entrée en arguments en utilisant '\t' comme séparateur
+        string[] arguments = input.Split('\t');
 
         if (arguments.Length > 0)
         {
@@ -43,8 +43,7 @@ public class CommandInterpreter
                         break;
 
                     default:
-                        Console.WriteLine("Commande inconnue.");
-                        return;
+                        throw new CommandNotFoundException($"Command '{command}' not recognized.");
                 }
 
                 // Exécuter la commande via la méthode Execute
@@ -52,7 +51,11 @@ public class CommandInterpreter
 
                 // Demander à l'utilisateur s'il veut sauvegarder la recherche
                 Console.WriteLine("Voulez-vous sauvegarder cette recherche ? (oui/non)");
-                string userInput = Console.ReadLine()?.Trim().ToLower();
+                string userInput = Console.ReadLine();
+                if (userInput != null)
+                {
+                    userInput = userInput.Trim().ToLower();
+                }
 
                 if (userInput == "oui" || userInput == "o" || userInput == "y" || userInput == "yes")
                 {
@@ -64,6 +67,15 @@ public class CommandInterpreter
                 {
                     Console.WriteLine("Recherche non sauvegardée.");
                 }
+            }
+            else if (command == "help")
+            {
+                DisplayHelp();
+            }
+            else if (command == "exit")
+            {
+                Console.WriteLine("Au revoir !");
+                Environment.Exit(0);
             }
             else
             {
@@ -79,6 +91,20 @@ public class CommandInterpreter
             Console.WriteLine("Exemple : GetFrench 你好");
         }
 
+    }
+    private void DisplayHelp()
+    {
+        Console.WriteLine("\nVoici les commandes disponibles :");
+        Console.WriteLine(" - GetSinogram\t<mot-français> : Obtenir le sinogramme simplifié d'un mot français.");
+        Console.WriteLine(" - GetTraditional\t<mot-chinois_simplifié> : Obtenir le sinogramme traditionnel d'un mot chinois.");
+        Console.WriteLine(" - GetFrench\t<mot-chinois> : Obtenir la traduction française d'un mot chinois.");
+        Console.WriteLine(" - GetPinyin\t<mot-chinois> : Obtenir la translittération pinyin d'un mot chinois.");
+        Console.WriteLine(" - GetAllInformation\t<mot> : Obtenir toutes les informations sur un mot donné.");
+        Console.WriteLine(" - help : Afficher cette aide.");
+        Console.WriteLine(" - exit : Quitter le programme.");
+        Console.WriteLine("\nExemples :");
+        Console.WriteLine(" - GetSinogram\tbonjour");
+        Console.WriteLine(" - GetFrench\t你好");
     }
 
 }

@@ -2,31 +2,26 @@ namespace DictionnaireZhFR
 {
     public class GetSinogramCommand : CommandBase
     {
+        private readonly PinyinUtils _pinyinUtils = new PinyinUtils();
+
         public override string Execute(string input)
         {
-            var data = dictionnaire.ObtenirDonneesDictionnaire();
+            List<Dictionary<string, string>> data = dictionnaire.ObtenirDonneesDictionnaire();
 
             // Normaliser l'entrée
             string normalizedInput = input.Trim().ToLower();
-            string accentedInput = PinyinUtils.ConvertNumericPinyinToAccented(normalizedInput);
-            string withoutTones = PinyinUtils.RemovePinyinTones(accentedInput);
-
-            // Console.WriteLine($"Normalized Input: {normalizedInput}");
-            // Console.WriteLine($"Accented Input: {accentedInput}");
-            // Console.WriteLine($"Without Tones: {withoutTones}");
+            string accentedInput = _pinyinUtils.ConvertNumericPinyinToAccented(normalizedInput);
+            string withoutTones = _pinyinUtils.RemovePinyinTones(accentedInput);
 
             // Liste pour stocker les résultats
             List<WordInfo> results = new List<WordInfo>();
 
             // Recherche dans le dictionnaire
-            foreach (var entry in data)
+            foreach (Dictionary<string, string> entry in data)
             {   
                 string entryPinyin = entry["Pinyin"];
-                string entryPinyinNoTones = PinyinUtils.RemovePinyinTones(PinyinUtils.ConvertNumericPinyinToAccented(entryPinyin));
-                // Console.WriteLine($"input: {input} ; Entry:{entry["Pinyin"]}");
-                // Console.WriteLine($"input: {input} ; Entry:{PinyinUtils.RemovePinyinTones(PinyinUtils.ConvertNumericPinyinToAccented(entry["Pinyin"]))}");
-
-                //Console.WriteLine($"Entry: {entry["Simpl"]} - {entry["Trad"]} - {entry["Pinyin"]} - {entry["Translations"]}");
+                string entryPinyinNoTones = _pinyinUtils.RemovePinyinTones(_pinyinUtils.ConvertNumericPinyinToAccented(entryPinyin));
+                
                 // Vérifier si les traductions contiennent l'entrée normalisée
                 if (entry["Translations"].Contains(normalizedInput, StringComparison.OrdinalIgnoreCase))
                 {
@@ -46,9 +41,7 @@ namespace DictionnaireZhFR
 
             if (results.Count == 0)
             {
-                string message = $"Aucun sinogramme trouvé pour '{input}'.";
-                Console.WriteLine(message);
-                return message;
+                throw new Exception($"Aucun sinogramme trouvé pour '{input}'.");
             }
 
             // Générer un message contenant tous les résultats trouvés
@@ -64,9 +57,5 @@ namespace DictionnaireZhFR
             );
         }
 
-        // public override string GetHelp()
-        // {
-        //     return "Obtenir le sinogramme simplifié d'un mot français ou du pinyin.";
-        // }
     }
 }

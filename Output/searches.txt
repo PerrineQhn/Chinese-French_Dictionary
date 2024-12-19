@@ -17,3 +17,6 @@ Simplified: 您好, Traditional: 您好, Pinyin: nin2 hao3, Translations: bonjou
 Simplified: 招呼, Traditional: 招呼, Pinyin: zhao1 hu5, Translations: appeler, saluer, dire bonjour
 Simplified: 问好, Traditional: 問好, Pinyin: wen4 hao3, Translations: dire bonjour
 --------------------------------------------------
+19/12/2024 14:12:12: Commande = GetSinogram, Mot = Bonjour
+Résultat :  Simplifié: 你好
+--------------------------------------------------

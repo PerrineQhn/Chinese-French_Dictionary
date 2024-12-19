@@ -4,14 +4,14 @@ namespace DictionnaireZhFR
     {
         public override string Execute(string chineseWord)
         {
-            var data = dictionnaire.ObtenirDonneesDictionnaire();
+            List<Dictionary<string, string>> data = dictionnaire.ObtenirDonneesDictionnaire();
 
-            foreach (var entry in data)
+            foreach (Dictionary<string, string> entry in data)
             {
                 if (entry["Simpl"] == chineseWord || entry["Trad"] == chineseWord || entry["Pinyin"] == chineseWord)
                 {
                     // Créer une instance de WordInfo pour la correspondance trouvée
-                    var wordInfo = new WordInfo(
+                    WordInfo wordInfo = new WordInfo(
                         entry["Simpl"],
                         entry["Trad"],
                         entry["Pinyin"],

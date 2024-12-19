@@ -2,14 +2,15 @@ namespace DictionnaireZhFR
 {
     public class GetTraditionalCommand : CommandBase
     {
+        private readonly PinyinUtils _pinyinUtils = new PinyinUtils();
         public override string Execute(string input)
         {
-            var data = dictionnaire.ObtenirDonneesDictionnaire();
+            List<Dictionary<string, string>> data = dictionnaire.ObtenirDonneesDictionnaire();
 
             // Normaliser l'entrée
             string normalizedInput = input.Trim().ToLower();
-            string accentedInput = PinyinUtils.ConvertNumericPinyinToAccented(normalizedInput);
-            string withoutTones = PinyinUtils.RemovePinyinTones(accentedInput);
+            string accentedInput = _pinyinUtils.ConvertNumericPinyinToAccented(normalizedInput);
+            string withoutTones = _pinyinUtils.RemovePinyinTones(accentedInput);
 
             // Console.WriteLine($"Normalized Input: {normalizedInput}");
             // Console.WriteLine($"Accented Input: {accentedInput}");
@@ -19,10 +20,10 @@ namespace DictionnaireZhFR
             List<WordInfo> results = new List<WordInfo>();
 
             // Recherche dans le dictionnaire
-            foreach (var entry in data)
+            foreach (Dictionary<string, string> entry in data)
             {
                 string entryPinyin = entry["Pinyin"];
-                string entryPinyinNoTones = PinyinUtils.RemovePinyinTones(PinyinUtils.ConvertNumericPinyinToAccented(entryPinyin));
+                string entryPinyinNoTones = _pinyinUtils.RemovePinyinTones(_pinyinUtils.ConvertNumericPinyinToAccented(entryPinyin));
 
                 // Comparaison avec différentes formes de pinyin ou caractères chinois
                 if (entry["Simpl"] == input || entryPinyin == input)

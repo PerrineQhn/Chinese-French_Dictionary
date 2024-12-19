@@ -7,7 +7,7 @@ public class Dictionnaire
 
         // Appel à JSONReader pour lire et traiter le fichier JSON
         JSONReader reader = new JSONReader();
-        var data = reader.ReadJSON(filePath);
+        List<Dictionary<string, string>> data = reader.ReadJSON(filePath);
 
         if (data == null || data.Count == 0)
         {

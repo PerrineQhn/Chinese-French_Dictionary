@@ -1,17 +1,18 @@
 namespace DictionnaireZhFR;
 public class GetAllInformationCommand : CommandBase
 {
+    private readonly PinyinUtils _pinyinUtils = new PinyinUtils();
 
     public override string Execute(string word)
     {
-        var data = dictionnaire.ObtenirDonneesDictionnaire();
+        List<Dictionary<string, string>> data = dictionnaire.ObtenirDonneesDictionnaire();
 
         // Normaliser l'entrée utilisateur
         string normalizedInput = word.Trim().ToLower();
-        string accentedInput = PinyinUtils.ConvertNumericPinyinToAccented(normalizedInput);
-        string withoutTones = PinyinUtils.RemovePinyinTones(accentedInput);
+        string accentedInput = _pinyinUtils.ConvertNumericPinyinToAccented(normalizedInput);
+        string withoutTones = _pinyinUtils.RemovePinyinTones(accentedInput);
 
-        foreach (var entry in data)
+        foreach (Dictionary<string, string> entry in data)
         {
             ChineseCharacterType type;
 

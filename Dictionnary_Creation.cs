@@ -1,7 +1,3 @@
-using System;
-using System.Collections.Generic;
-using System.IO;
-using System.Linq;
 using System.Xml.Linq;
 using System.Text.Json;
 
@@ -21,17 +17,28 @@ class Dictionnary_Creation
             {
                 XDocument doc = XDocument.Load(reader);
 
-                var dictionnary = new List<Dictionary<string, object>>();
+                List<Dictionary<string, object>> dictionnary = new List<Dictionary<string, object>>();
 
-                foreach (var word in doc.Descendants("word"))
+                foreach (XElement word in doc.Descendants("word"))
                 {
-                    string simpl = word.Element("simp")?.Value ?? string.Empty;
-                    string trad = word.Element("trad")?.Value ?? string.Empty;
-                    string pinyin = word.Element("py")?.Value ?? string.Empty;
+                    string GetElementValue(XElement parent, string elementName)
+                    {
+                        XElement element = parent.Element(elementName);
+                        if (element != null)
+                        {
+                            return element.Value;
+                        }
+                        return string.Empty;
+                    }
 
-                    var traductions = word.Descendants("fr").Select(fr => fr.Value).ToList();
+                    // Utilisation de la méthode pour obtenir les valeurs
+                    string simpl = GetElementValue(word, "simp");
+                    string trad = GetElementValue(word, "trad");
+                    string pinyin = GetElementValue(word, "py");
 
-                    var entry = new Dictionary<string, object>
+                    List<string> traductions = word.Descendants("fr").Select(fr => fr.Value).ToList();
+
+                    Dictionary<string, object> entry = new Dictionary<string, object>
                     {
                         { "Simpl", simpl },
                         { "Trad", trad },
@@ -54,8 +61,13 @@ class Dictionnary_Creation
     private void SaveToJson(List<Dictionary<string, object>> words, string jsonFilePath)
     {
         try
-        {
-            string json = JsonSerializer.Serialize(words, new JsonSerializerOptions { WriteIndented = true });
+        {   
+            JsonSerializerOptions options = new JsonSerializerOptions
+            {
+                WriteIndented = true,
+                PropertyNamingPolicy = JsonNamingPolicy.SnakeCaseLower,
+            };
+            string json = JsonSerializer.Serialize(words, options);
             File.WriteAllText(jsonFilePath, json);
             Console.WriteLine($"Fichier JSON créé avec succès : {jsonFilePath}");
         }

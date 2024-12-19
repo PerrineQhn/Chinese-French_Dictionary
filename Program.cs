@@ -30,24 +30,10 @@
             while (true)
             {
                 Console.WriteLine("\nEntrez une commande (ou tapez 'exit' pour quitter) :");
-                Console.WriteLine("Options disponibles : GetSinogram, GetTraditional, GetFrench, GetPinyin, GetAllInformation, help");
+                Console.WriteLine("Commandes disponibles (utiliser tab pour ajouter les arguments) : GetSinogram, GetTraditional, GetFrench, GetPinyin, GetAllInformation, help");
 
                 // Lire la commande de l'utilisateur
                 string command = Console.ReadLine();
-
-                // Vérifier si l'utilisateur veut quitter
-                if (command.Equals("exit", StringComparison.OrdinalIgnoreCase))
-                {
-                    Console.WriteLine("Au revoir !");
-                    break;
-                }
-
-                // Vérifier si l'utilisateur demande de l'aide
-                if (command.Equals("help", StringComparison.OrdinalIgnoreCase))
-                {
-                    AfficherAide();
-                    continue;
-                }
 
                 // Vérifier si une commande est entrée
                 if (string.IsNullOrWhiteSpace(command))
@@ -66,21 +52,6 @@
                     Console.WriteLine($"Erreur lors de l'exécution de la commande : {ex.Message}");
                 }
             }
-        }
-
-        // Méthode pour afficher l'aide
-        static void AfficherAide()
-        {
-            Console.WriteLine("\nVoici les commandes disponibles et comment les utiliser :");
-            Console.WriteLine(" - GetSinogram\t<mot-français> : Obtenir le sinogramme simplifié d'un mot français.");
-            Console.WriteLine(" - GetTraditional\t<mot-chinois_simplifié> : Obtenir le sinogramme traditionnel d'un mot chinois.");
-            Console.WriteLine(" - GetFrench\t<mot-chinois> : Obtenir la traduction française d'un mot chinois.");
-            Console.WriteLine(" - GetPinyin\t<mot-chinois> : Obtenir la translittération pinyin d'un mot chinois.");
-            Console.WriteLine(" - GetAllInformation\t<mot> : Obtenir toutes les informations (simplifié, traditionnel, pinyin, traduction) sur un mot donné.");
-            Console.WriteLine(" - exit : Quitter le programme.");
-            Console.WriteLine("\nExemples :");
-            Console.WriteLine(" - GetSinogram\tbonjour");
-            Console.WriteLine(" - GetFrench\t你好");
         }
     }
 }

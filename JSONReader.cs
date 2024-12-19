@@ -1,43 +1,49 @@
 using System.Text.Json;
+
 namespace DictionnaireZhFR;
+
 class JSONReader
 {
     public List<Dictionary<string, string>> ReadJSON(string jsonFilePath)
     {
-        var records = new List<Dictionary<string, string>>();
+        List<Dictionary<string, string>> records = new List<Dictionary<string, string>>();
 
         try
         {
+            // Vérifier si le fichier existe
             if (!File.Exists(jsonFilePath))
             {
-                throw new FileNotFoundException($"Le fichier JSON '{jsonFilePath}' est introuvable.");
+                Console.WriteLine($"Fichier introuvable : {jsonFilePath}");
+                return records;
             }
 
-            // Lecture et désérialisation du fichier JSON
+            // Lire le contenu du fichier JSON
             string jsonContent = File.ReadAllText(jsonFilePath);
 
-            var jsonData = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(jsonContent);
+            // Désérialiser les données
+            List<Dictionary<string, object>> jsonData = JsonSerializer.Deserialize<List<Dictionary<string, object>>>(jsonContent);
 
             if (jsonData == null || jsonData.Count == 0)
             {
-                throw new Exception("Le fichier JSON est vide ou les données sont invalides.");
+                Console.WriteLine("Fichier JSON vide ou invalide.");
+                return records;
             }
 
-            // Conversion des données en List<Dictionary<string, string>>
-            foreach (var entry in jsonData)
+            // Traiter les données
+            foreach (Dictionary<string, object> entry in jsonData)
             {
-                var record = new Dictionary<string, string>();
+                Dictionary<string, string> record = new Dictionary<string, string>();
 
-                foreach (var kvp in entry)
+                foreach (KeyValuePair<string, object> kvp in entry)
                 {
-                    // Gestion des listes de traductions
-                    if (kvp.Value is JsonElement jsonElement && jsonElement.ValueKind == JsonValueKind.Array)
+                    // Convertir les valeurs en texte, y compris les listes
+                    if (kvp.Value is JsonElement element && element.ValueKind == JsonValueKind.Array)
                     {
-                        record[kvp.Key] = string.Join(", ", jsonElement.EnumerateArray().Select(e => e.GetString()));
+                        record[kvp.Key] = string.Join(", ", element.EnumerateArray().Select(e => e.GetString()));
                     }
                     else
                     {
-                        record[kvp.Key] = kvp.Value?.ToString() ?? string.Empty;
+                        record[kvp.Key] = kvp.Value?.ToString() ?? "";
                     }
                 }
 
@@ -46,7 +52,7 @@ class JSONReader
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Erreur lors de la lecture du fichier JSON : {ex.Message}");
+            Console.WriteLine($"Erreur : {ex.Message}");
         }
 
         return records;

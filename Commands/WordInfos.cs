@@ -1,7 +1,10 @@
 namespace DictionnaireZhFR
 {
+
     public class WordInfo
     {
+        private readonly PinyinUtils _pinyinUtils = new PinyinUtils();
+        
         public string Simplified { get; set; }
         public string Traditional { get; set; }
         public string Pinyin { get; set; }
@@ -30,7 +33,7 @@ namespace DictionnaireZhFR
         {
             Simplified = simplified;
             Traditional = traditional;
-            Pinyin = PinyinUtils.ConvertNumericPinyinToAccented(pinyin);
+            Pinyin = _pinyinUtils.ConvertNumericPinyinToAccented(pinyin);
             Translations = translations;
         }
 
