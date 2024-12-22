@@ -18,7 +18,7 @@ public class GetPinyinCommand : CommandBase
                     entry["Translations"]
                 );
 
-                string result = $"Pinyin pour '{chineseWord}': {wordInfo.Pinyin}";
+                string result = $"Pinyin pour '{chineseWord}': {wordInfo.Pinyin} ";
                 Console.WriteLine(result);
                 return result;
             }

@@ -5,6 +5,7 @@ public abstract class CommandBase
     // Accès au dictionnaire (commun à toutes les commandes)
     protected Dictionnaire dictionnaire = new Dictionnaire();
 
-    // Méthode abstraite que chaque commande doit implémenter
+    // Méthode abstraite que chaque commande doit implémenter et retourner une chaîne
     public abstract string Execute(string input);
+
 }

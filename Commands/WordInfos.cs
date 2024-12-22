@@ -33,7 +33,8 @@ namespace DictionnaireZhFR
         {
             Simplified = simplified;
             Traditional = traditional;
-            Pinyin = _pinyinUtils.ConvertNumericPinyinToAccented(pinyin);
+            // obtenir le pinyin accentué et le pinyin numérique
+            Pinyin = $"{_pinyinUtils.ConvertNumericPinyinToAccented(pinyin)} ({pinyin})"; 
             Translations = translations;
         }
 

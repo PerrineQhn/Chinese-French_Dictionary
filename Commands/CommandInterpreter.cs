@@ -42,6 +42,10 @@ public class CommandInterpreter
                         commandInstance = new GetAllInformationCommand();
                         break;
 
+                    case "ReadSaveFile":
+                        commandInstance = new ReadFileCommand();
+                        break;
+
                     default:
                         throw new CommandNotFoundException($"Command '{command}' not recognized.");
                 }
@@ -100,6 +104,7 @@ public class CommandInterpreter
         Console.WriteLine(" - GetFrench\t<mot-chinois> : Obtenir la traduction française d'un mot chinois.");
         Console.WriteLine(" - GetPinyin\t<mot-chinois> : Obtenir la translittération pinyin d'un mot chinois.");
         Console.WriteLine(" - GetAllInformation\t<mot> : Obtenir toutes les informations sur un mot donné.");
+        Console.WriteLine(" - ReadSaveFile\t<chemin_fichier> : Lire le contenu d'un fichier texte comprenant les sauvegardes réalisées.");
         Console.WriteLine(" - help : Afficher cette aide.");
         Console.WriteLine(" - exit : Quitter le programme.");
         Console.WriteLine("\nExemples :");
