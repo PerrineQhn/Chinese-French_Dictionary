@@ -98,7 +98,7 @@ public class CommandInterpreter
     }
     private void DisplayHelp()
     {
-        Console.WriteLine("\nVoici les commandes disponibles :");
+        Console.WriteLine("\nVoici les commandes disponibles (un \\t est utilisé pour séparer la commande des arguments):");
         Console.WriteLine(" - GetSinogram\t<mot-français> : Obtenir le sinogramme simplifié d'un mot français.");
         Console.WriteLine(" - GetTraditional\t<mot-chinois_simplifié> : Obtenir le sinogramme traditionnel d'un mot chinois.");
         Console.WriteLine(" - GetFrench\t<mot-chinois> : Obtenir la traduction française d'un mot chinois.");

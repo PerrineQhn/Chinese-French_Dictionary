@@ -9,9 +9,7 @@ namespace DictionnaireZhFR
             List<Dictionary<string, string>> data = dictionnaire.ObtenirDonneesDictionnaire();
 
             // Normaliser l'entrée
-            string normalizedInput = input.Trim().ToLower();
-            string accentedInput = _pinyinUtils.ConvertNumericPinyinToAccented(normalizedInput);
-            string withoutTones = _pinyinUtils.RemovePinyinTones(accentedInput);
+            string frenchWord = input.Trim().ToLower();
 
             // Liste pour stocker les résultats
             List<WordInfo> results = new List<WordInfo>();
@@ -19,21 +17,8 @@ namespace DictionnaireZhFR
             // Recherche dans le dictionnaire
             foreach (Dictionary<string, string> entry in data)
             {   
-                string entryPinyin = entry["Pinyin"];
-                string entryPinyinNoTones = _pinyinUtils.RemovePinyinTones(_pinyinUtils.ConvertNumericPinyinToAccented(entryPinyin));
-                
                 // Vérifier si les traductions contiennent l'entrée normalisée
-                if (entry["Translations"].Contains(normalizedInput, StringComparison.OrdinalIgnoreCase))
-                {
-                    results.Add(CreateWordInfo(entry));
-                }
-                // Correspondance exacte avec le pinyin (avec tons)
-                else if (entryPinyin == normalizedInput)
-                {
-                    results.Add(CreateWordInfo(entry));
-                }
-                // Correspondance avec le pinyin sans les tons
-                else if (entryPinyinNoTones == withoutTones)
+                if (entry["Translations"].Contains(frenchWord, StringComparison.OrdinalIgnoreCase))
                 {
                     results.Add(CreateWordInfo(entry));
                 }
@@ -53,7 +38,7 @@ namespace DictionnaireZhFR
         private WordInfo CreateWordInfo(Dictionary<string, string> entry)
         {
             return new WordInfo(
-                $" Simplifié: {entry["Trad"]}"
+                $" Simplifié: {entry["Simpl"]} ({entry["Pinyin"]})"
             );
         }
 

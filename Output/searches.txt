@@ -20,3 +20,11 @@ Simplified: 问好, Traditional: 問好, Pinyin: wen4 hao3, Translations: dire b
 19/12/2024 14:12:12: Commande = GetSinogram, Mot = Bonjour
 Résultat :  Simplifié: 你好
 --------------------------------------------------
+08/01/2025 13:46:09: Commande = GetSinogram, Mot = bonjour
+Résultat :  Simplifié: 你好 (ni3 hao3)
+ Simplifié: 哈啰 (ha1 luo1)
+ Simplifié: 大家好 (da4 jia1 hao3)
+ Simplifié: 您好 (nin2 hao3)
+ Simplifié: 招呼 (zhao1 hu5)
+ Simplifié: 问好 (wen4 hao3)
+--------------------------------------------------

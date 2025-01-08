@@ -30,7 +30,7 @@
             while (true)
             {
                 Console.WriteLine("\nEntrez une commande (ou tapez 'exit' pour quitter) :");
-                Console.WriteLine("Commandes disponibles (utiliser tab pour ajouter les arguments) : GetSinogram, GetTraditional, GetFrench, GetPinyin, GetAllInformation, help");
+                Console.WriteLine("Commandes disponibles (utiliser tab pour ajouter les arguments) : GetSinogram, GetTraditional, GetFrench, GetPinyin, GetAllInformation, ReadSaveFile, help");
 
                 // Lire la commande de l'utilisateur
                 string command = Console.ReadLine();
