@@ -1,37 +1,42 @@
+using System.Text.RegularExpressions;
+
 namespace DictionnaireZhFR
 {
     public class GetTraditionalCommand : CommandBase
     {
         private readonly PinyinUtils _pinyinUtils = new PinyinUtils();
-        private readonly LocalizationService _localizationService;
-        private readonly Dictionnaire _dictionnaire;
 
 
-        public GetTraditionalCommand(LocalizationService localizationService)
+        public GetTraditionalCommand(LocalizationService localizationService) : base(localizationService)
         {
-            _localizationService = localizationService;
-            _dictionnaire = new Dictionnaire(localizationService);
         }
 
         public override string Execute(string input)
         {
-            List<Dictionary<string, string>> data = _dictionnaire.ObtenirDonneesDictionnaire();
+            List<Dictionary<string, string>> data = dictionnaire.ObtenirDonneesDictionnaire();
+            
+            string normalizedInput = input.Trim();
+            string accentedInput = string.Empty;
+            string withoutTones = string.Empty;
 
-            // Normaliser l'entrée
-            string normalizedInput = input.Trim().ToLower();
-            string accentedInput = _pinyinUtils.ConvertNumericPinyinToAccented(normalizedInput);
-            string withoutTones = _pinyinUtils.RemovePinyinTones(accentedInput);
+            // Si l’entrée correspond à un pattern du type [a-zü\d\s]+ alors appeler ConvertNumericPinyinToAccented
+            if (Regex.IsMatch(input, @"^[a-zü\d\s]+$"))
+            {
+                normalizedInput = input.Trim().ToLower();
+                accentedInput = _pinyinUtils.ConvertNumericPinyinToAccented(normalizedInput);
+                withoutTones = _pinyinUtils.RemovePinyinTones(accentedInput);
 
-            // Console.WriteLine($"Normalized Input: {normalizedInput}");
-            // Console.WriteLine($"Accented Input: {accentedInput}");
-            // Console.WriteLine($"Without Tones: {withoutTones}");
+                // Console.WriteLine($"Normalized Input: {normalizedInput}");
+                // Console.WriteLine($"Accented Input: {accentedInput}");
+                // Console.WriteLine($"Without Tones: {withoutTones}");
+            }
 
             // Liste pour stocker les résultats
             List<WordInfo> results = new List<WordInfo>();
 
             // Recherche dans le dictionnaire
             foreach (Dictionary<string, string> entry in data)
-            {
+            {       
                 string entryPinyin = entry["Pinyin"];
                 string entryPinyinNoTones = _pinyinUtils.RemovePinyinTones(_pinyinUtils.ConvertNumericPinyinToAccented(entryPinyin));
 
@@ -40,11 +45,11 @@ namespace DictionnaireZhFR
                 {
                     results.Add(CreateWordInfo(entry));
                 }
-                else if (entryPinyin == normalizedInput)
+                else if (!string.IsNullOrEmpty(normalizedInput) && entryPinyin == normalizedInput)
                 {
                     results.Add(CreateWordInfo(entry));
                 }
-                else if (entryPinyinNoTones == withoutTones)
+                else if (!string.IsNullOrEmpty(withoutTones) && entryPinyinNoTones == withoutTones)
                 {
                     results.Add(CreateWordInfo(entry));
                 }
@@ -53,7 +58,6 @@ namespace DictionnaireZhFR
             if (results.Count == 0)
             {
                 string message = _localizationService.GetText("NoTraditionalFound") + $"'{input}'.";
-                // string message = $"Aucun caractère traditionnel trouvé pour '{input}'.";
                 Console.WriteLine(message);
                 return message;
             }
@@ -61,7 +65,6 @@ namespace DictionnaireZhFR
             // Générer un message contenant tous les résultats trouvés
             string output = string.Join("\n", results.Select(w => w.ToString()));
             Console.WriteLine(_localizationService.GetText("TraditionalFound") + $"'{input}':\n{output}");
-            // Console.WriteLine($"Caractères traditionnels trouvés pour '{input}':\n{output}");
             return output;
         }
 

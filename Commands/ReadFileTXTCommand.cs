@@ -2,11 +2,8 @@ namespace DictionnaireZhFR;
 
 public class ReadFileCommand : CommandBase
 {
-    private readonly LocalizationService _localizationService;
-
-    public ReadFileCommand(LocalizationService localizationService)
+    public ReadFileCommand(LocalizationService localizationService) : base(localizationService)
     {
-        _localizationService = localizationService;
     }
 
     public override string Execute(string filepath)

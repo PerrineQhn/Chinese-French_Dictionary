@@ -2,11 +2,8 @@ namespace DictionnaireZhFR
 {
     public class GetFrenchCommand : CommandBase
     {
-        public readonly LocalizationService _localizationService;
-
-        public GetFrenchCommand(LocalizationService localizationService)
+        public GetFrenchCommand(LocalizationService localizationService) : base(localizationService)
         {
-            _localizationService = localizationService;
         }
 
         public override string Execute(string chineseWord)

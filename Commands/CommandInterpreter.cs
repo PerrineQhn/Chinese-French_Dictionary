@@ -13,7 +13,7 @@ public class CommandInterpreter
     public void Interpret(string input)
     {
         // Divise l'entrée en arguments en utilisant '\t' comme séparateur
-        string[] arguments = input.Split('\t');
+        string[] arguments = input.Split(' ');
 
         if (arguments.Length > 0)
         {
@@ -60,7 +60,7 @@ public class CommandInterpreter
                         break;
 
                     case "ChangeLanguage":
-                        commandInstance = new ChangeLanguageCommand(_localizationService, arguments);
+                        commandInstance = new ChangeLanguageCommand(_localizationService);
                         break; 
 
                     default:

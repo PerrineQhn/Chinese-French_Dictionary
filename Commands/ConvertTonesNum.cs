@@ -9,12 +9,12 @@ public class PinyinUtils
     {
         _toneMapping = new Dictionary<char, string[]>
         {
-            { 'a', new[] { "ā", "á", "ǎ", "à" } },
-            { 'o', new[] { "ō", "ó", "ǒ", "ò" } },
-            { 'e', new[] { "ē", "é", "ě", "è" } },
-            { 'i', new[] { "ī", "í", "ǐ", "ì" } },
-            { 'u', new[] { "ū", "ú", "ǔ", "ù" } },
-            { 'ü', new[] { "ǖ", "ǘ", "ǚ", "ǜ" } }
+            { 'a', new[] { "ā", "á", "ǎ", "à", "a" } },
+            { 'o', new[] { "ō", "ó", "ǒ", "ò", "o" } },
+            { 'e', new[] { "ē", "é", "ě", "è", "e" } },
+            { 'i', new[] { "ī", "í", "ǐ", "ì", "i" } },
+            { 'u', new[] { "ū", "ú", "ǔ", "ù", "u" } },
+            { 'ü', new[] { "ǖ", "ǘ", "ǚ", "ǜ", "ü" } }
         };
     }
 
@@ -30,7 +30,7 @@ public class PinyinUtils
 
             if (char.IsDigit(tone))
             {
-                int toneIndex = int.Parse(tone.ToString()) - 1; // Convertir en index (0-4)
+                int toneIndex = int.Parse(tone.ToString()) - 1; // Convertir en index (0-5)
 
                 foreach (char vowel in _toneMapping.Keys)
                 {

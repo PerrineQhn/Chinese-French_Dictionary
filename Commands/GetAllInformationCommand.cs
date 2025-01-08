@@ -4,11 +4,9 @@ namespace DictionnaireZhFR;
 public class GetAllInformationCommand : CommandBase
 {
     private readonly PinyinUtils _pinyinUtils = new PinyinUtils();
-    private readonly LocalizationService _localizationService;
 
-    public GetAllInformationCommand(LocalizationService localizationService)
+    public GetAllInformationCommand(LocalizationService localizationService) : base(localizationService)
     {
-        _localizationService = localizationService;
     }
 
     public override string Execute(string word)

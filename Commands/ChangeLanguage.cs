@@ -5,10 +5,9 @@ public class ChangeLanguageCommand : CommandBase
     LocalizationService localizationService;
     string newLang;
 
-    public ChangeLanguageCommand(LocalizationService localizationService, string[] commandArgument) : base(commandArgument)
+    public ChangeLanguageCommand(LocalizationService localizationService) : base(localizationService)
     {
         this.localizationService = localizationService;
-        newLang = commandArgument[1];
     }
 
     public override string Execute(string input)

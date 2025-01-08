@@ -2,11 +2,8 @@ namespace DictionnaireZhFR;
 
 public class GetPinyinCommand : CommandBase
 {
-    private readonly LocalizationService _localizationService;
-
-    public GetPinyinCommand(LocalizationService localizationService)
+    public GetPinyinCommand(LocalizationService localizationService) : base(localizationService)
     {
-        _localizationService = localizationService;
     }
     
     public override string Execute(string chineseWord)
@@ -26,14 +23,12 @@ public class GetPinyinCommand : CommandBase
                 );
 
                 string result = _localizationService.GetText("PinyinFound") + $" {wordInfo.Pinyin} ";
-                // string result = $"Pinyin pour '{chineseWord}': {wordInfo.Pinyin} ";
                 Console.WriteLine(result);
                 return result;
             }
         }
 
         string message = _localizationService.GetText("PinyinNotFound") + $" '{chineseWord}'.";
-        // string message = $"Aucun Pinyin trouvé pour '{chineseWord}'.";
         Console.WriteLine(message);
         return message;
     }
