@@ -13,7 +13,7 @@ public class CommandInterpreter
     public void Interpret(string input)
     {
         // Divise l'entrée en arguments en utilisant '\t' comme séparateur
-        string[] arguments = input.Split(' ');
+        string[] arguments = input.Split('\t');
 
         if (arguments.Length > 0)
         {
