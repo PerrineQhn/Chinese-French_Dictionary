@@ -82,7 +82,7 @@ L'application fonctionne avec des commandes que vous entrez dans la console. Voi
 - **Comment l'utiliser ?** : `Quitter`
 - **Équivalent dans les autres langues** : `Exit`, `退出`
 
---
+---
 
 ### **9. LireFichierSauvegarde**
 
