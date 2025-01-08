@@ -3,6 +3,12 @@ namespace DictionnaireZhFR
     public class GetSinogramCommand : CommandBase
     {
         private readonly PinyinUtils _pinyinUtils = new PinyinUtils();
+        private readonly LocalizationService _localizationService;
+
+        public GetSinogramCommand(LocalizationService localizationService)
+        {
+            _localizationService = localizationService;
+        }
 
         public override string Execute(string input)
         {
@@ -26,19 +32,22 @@ namespace DictionnaireZhFR
 
             if (results.Count == 0)
             {
-                throw new Exception($"Aucun sinogramme trouvé pour '{input}'.");
+                throw new Exception(_localizationService.GetText("NoSinogramFound") + $"'{input}'.");
+                // throw new Exception($"Aucun sinogramme trouvé pour '{input}'.");
             }
 
             // Générer un message contenant tous les résultats trouvés
             string output = string.Join("\n", results.Select(w => w.ToString()));
-            Console.WriteLine($"Sinogrammes trouvés pour '{input}':\n{output}");
+            Console.WriteLine(_localizationService.GetText("SinogramsFound") + $"'{input}':\n{output}");
+            // Console.WriteLine($"Sinogrammes trouvés pour '{input}':\n{output}");
             return output;
         }
 
         private WordInfo CreateWordInfo(Dictionary<string, string> entry)
-        {
+        {   
+
             return new WordInfo(
-                $" Simplifié: {entry["Simpl"]} ({entry["Pinyin"]})"
+                $" {_localizationService.GetText("Simplified")}: {entry["Simpl"]} ({entry["Pinyin"]})"
             );
         }
 

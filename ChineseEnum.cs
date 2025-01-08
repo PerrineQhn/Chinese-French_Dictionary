@@ -4,5 +4,5 @@ public enum ChineseCharacterType
     Simplified,
     Traditional,
     Pinyin,
-    FrenchTranslation
+    Translation
 }

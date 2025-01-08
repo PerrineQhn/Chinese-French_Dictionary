@@ -4,7 +4,8 @@
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Bienvenue dans le dictionnaire chinois-français !");
+            LocalizationService localizationService = new LocalizationService();
+            Console.WriteLine(localizationService.GetText("WelcomeMessage"));
 
             // Définir les chemins pour les fichiers
             string xmlFilePath = "Data/cfdict.xml";
@@ -14,23 +15,31 @@
             if (!File.Exists(jsonFilePath))
             {
                 // Instancier la classe Dictionnary_Creation
-                Dictionnary_Creation generation_dictionnaire = new Dictionnary_Creation();
+                Dictionnary_Creation generation_dictionnaire = new Dictionnary_Creation(localizationService);
 
                 // Appeler la méthode pour générer le vocabulaire
-                Console.WriteLine("Génération du fichier JSON...");
+                Console.WriteLine(localizationService.GetText("GeneratingJson"));
                 generation_dictionnaire.CreateDictionnary_JSON(xmlFilePath, jsonFilePath);
             }
             else
             {
-                Console.WriteLine("Le fichier JSON existe déjà.");
+                Console.WriteLine(localizationService.GetText("JsonExists"));
             }
 
             // Boucle infinie pour entrer des commandes
-            CommandInterpreter commandInterpreter = new CommandInterpreter();
+            CommandInterpreter commandInterpreter = new CommandInterpreter(localizationService);
+
             while (true)
             {
-                Console.WriteLine("\nEntrez une commande (ou tapez 'exit' pour quitter) :");
-                Console.WriteLine("Commandes disponibles (utiliser tab pour ajouter les arguments) : GetSinogram, GetTraditional, GetFrench, GetPinyin, GetAllInformation, ReadSaveFile, help");
+                Console.WriteLine("\n" + localizationService.GetText("Entrez une commande (ou tapez 'quitter' pour quitter) :"));
+                Console.WriteLine(localizationService.GetText("GetSinogram") + ", " +
+                                localizationService.GetText("GetTraditional") + ", " +
+                                localizationService.GetText("GetFrench") + ", " +
+                                localizationService.GetText("GetPinyin") + ", " +
+                                localizationService.GetText("GetAllInformation") + ", " +
+                                localizationService.GetText("ChangeLanguage") + ", " +
+                                localizationService.GetText("ReadSaveFile") + ", " +
+                                localizationService.GetText("help"));
 
                 // Lire la commande de l'utilisateur
                 string command = Console.ReadLine();

@@ -1,15 +1,24 @@
 using System.Xml.Linq;
 using System.Text.Json;
 
+namespace DictionnaireZhFR;
+
 class Dictionnary_Creation
 {
+    private readonly LocalizationService _localizationService;
+
+    public Dictionnary_Creation(LocalizationService localizationService)
+    {
+        _localizationService = localizationService;
+    }
+
     public void CreateDictionnary_JSON(string xmlFilePath, string jsonFilePath)
     {
         try
         {
             if (!File.Exists(xmlFilePath))
             {
-                Console.WriteLine($"Le fichier XML '{xmlFilePath}' est introuvable.");
+                Console.WriteLine(_localizationService.GetTextArg("FileNotFound", xmlFilePath));
                 return;
             }
 
@@ -54,7 +63,7 @@ class Dictionnary_Creation
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Erreur : {ex.Message}");
+            Console.WriteLine(_localizationService.GetText("Error") + $" : {ex.Message}");
         }
     }
 
@@ -69,10 +78,11 @@ class Dictionnary_Creation
             };
             string json = JsonSerializer.Serialize(words, options);
             File.WriteAllText(jsonFilePath, json);
-            Console.WriteLine($"Fichier JSON créé avec succès : {jsonFilePath}");
+            Console.WriteLine(_localizationService.GetText("JsonCreated") + $" : {jsonFilePath}");
         }
         catch (Exception ex)
         {
+            Console.WriteLine(_localizationService.GetText("ErrorSave") + $" : {ex.Message}");
             Console.WriteLine($"Erreur lors de la sauvegarde du fichier JSON : {ex.Message}");
         }
     }

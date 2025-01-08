@@ -4,6 +4,12 @@ namespace DictionnaireZhFR;
 public class GetAllInformationCommand : CommandBase
 {
     private readonly PinyinUtils _pinyinUtils = new PinyinUtils();
+    private readonly LocalizationService _localizationService;
+
+    public GetAllInformationCommand(LocalizationService localizationService)
+    {
+        _localizationService = localizationService;
+    }
 
     public override string Execute(string word)
     {
@@ -19,28 +25,31 @@ public class GetAllInformationCommand : CommandBase
         foreach (Dictionary<string, string> entry in data)
         {
             ChineseCharacterType type;
-            if (entry["Translations"] == word )
+            if (entry["Translations"].Contains(normalizedInput))
             {
-                type = ChineseCharacterType.FrenchTranslation;
-                results.Add($"Informations pour {word} ({type}) :\nLe sinogramme traditionnel est : {entry["Trad"]}\nLe pinyin : {entry["Pinyin"]}\nLe sinogramme simplifié : {entry["Simpl"]}\n");
+                type = ChineseCharacterType.Translation;
+                results.Add(_localizationService.GetTextArg("Informations pour '{0}' ({1}) :\nLe sinogramme traditionnel est : {2}\nLe sinogramme simplifié : {3}\nLe pinyin : {4}\nLa traduction : {5}", word, type, entry["Trad"], entry["Simpl"], entry["Pinyin"], entry["Translations"]));
             }
 
-            else if (entry["Simpl"] == normalizedInput)
+            else if (entry["Simpl"].Contains(normalizedInput))
             {
                 type = ChineseCharacterType.Simplified;
-                results.Add($"Informations pour {word} ({type}) :\nLe sinogramme traditionnel est : {entry["Trad"]}\nLe pinyin : {entry["Pinyin"]}\nLa traduction : {entry["Translations"]}\n");
+                results.Add(_localizationService.GetTextArg("Informations pour '{0}' ({1}) :\nLe sinogramme traditionnel est : {2}\nLe pinyin : {3}\nLa traduction : {4}\n", word, type, entry["Trad"], entry["Pinyin"], entry["Translations"]));
+                // results.Add($"Informations pour {word} ({type}) :\nLe sinogramme traditionnel est : {entry["Trad"]}\nLe pinyin : {entry["Pinyin"]}\nLa traduction : {entry["Translations"]}\n");
             }
             
-            else if (entry["Trad"] == normalizedInput)
+            else if (entry["Trad"].Contains(normalizedInput))
             {
                 type = ChineseCharacterType.Traditional;
-                results.Add($"Informations pour {word} ({type}) :\nLe sinogramme simplifié : {entry["Simpl"]}\nLe pinyin : {entry["Pinyin"]}\nLa traduction : {entry["Translations"]}\n");
+                results.Add(_localizationService.GetTextArg("Informations pour '{0}' ({1}) :\nLe sinogramme simplifié : {2}\nLe pinyin : {3}\nLa traduction : {4}\n", word, type, entry["Simpl"], entry["Pinyin"], entry["Translations"]));
+                // results.Add($"Informations pour {word} ({type}) :\nLe sinogramme simplifié : {entry["Simpl"]}\nLe pinyin : {entry["Pinyin"]}\nLa traduction : {entry["Translations"]}\n");
             }
             
             else if (entry["Pinyin"] == word || entry["Pinyin"] != null && entry["Pinyin"].Split(' ').Contains(word)) 
             {
                 type = ChineseCharacterType.Pinyin;
-                results.Add($"Informations pour {word} ({type}) :\nLe sinogramme traditionnel est : {entry["Trad"]}\nLe sinogramme simplifié : {entry["Simpl"]}\nLa traduction : {entry["Translations"]}\n");
+                results.Add(_localizationService.GetTextArg("Informations pour '{0}' ({1}) :\nLe sinogramme traditionnel est : {2}\nLe sinogramme simplifié : {3}\nLa traduction : {4}\n", word, type, entry["Trad"], entry["Simpl"], entry["Translations"]));
+                // results.Add($"Informations pour {word} ({type}) :\nLe sinogramme traditionnel est : {entry["Trad"]}\nLe sinogramme simplifié : {entry["Simpl"]}\nLa traduction : {entry["Translations"]}\n");
             }
         }
 
@@ -65,13 +74,13 @@ public class GetAllInformationCommand : CommandBase
         if (suggestions.Count() > 0)
         {
             string suggestionList = string.Join(", ", suggestions.Select(s => s.Value));
-            Console.WriteLine($"Aucune information trouvée pour '{word}'. Suggestions : {suggestionList}");
-            return $"Aucune information trouvée pour '{word}'. Suggestions : {suggestionList}";
+            Console.WriteLine(_localizationService.GetTextArg("Aucune information trouvée pour '{0}'. Suggestions : {1}", word, suggestionList));
+            return _localizationService.GetTextArg("Aucune information trouvée pour '{0}'. Suggestions : {1}", word, suggestionList);
         }
         else
         {
-            Console.WriteLine($"Aucune information trouvée pour '{word}'.");
-            return $"Aucune information trouvée pour '{word}'.";
+            Console.WriteLine(_localizationService.GetTextArg("Aucune information trouvée pour '{0}'.", word));
+            return _localizationService.GetTextArg("Aucune information trouvée pour '{0}'.", word);
         }
     }
     private string GetTranslations(string translations)

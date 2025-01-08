@@ -2,6 +2,13 @@ namespace DictionnaireZhFR;
 
 public class GetPinyinCommand : CommandBase
 {
+    private readonly LocalizationService _localizationService;
+
+    public GetPinyinCommand(LocalizationService localizationService)
+    {
+        _localizationService = localizationService;
+    }
+    
     public override string Execute(string chineseWord)
     {
         List<Dictionary<string, string>> data = dictionnaire.ObtenirDonneesDictionnaire();
@@ -18,13 +25,15 @@ public class GetPinyinCommand : CommandBase
                     entry["Translations"]
                 );
 
-                string result = $"Pinyin pour '{chineseWord}': {wordInfo.Pinyin} ";
+                string result = _localizationService.GetText("PinyinFound") + $" {wordInfo.Pinyin} ";
+                // string result = $"Pinyin pour '{chineseWord}': {wordInfo.Pinyin} ";
                 Console.WriteLine(result);
                 return result;
             }
         }
 
-        string message = $"Aucun Pinyin trouvé pour '{chineseWord}'.";
+        string message = _localizationService.GetText("PinyinNotFound") + $" '{chineseWord}'.";
+        // string message = $"Aucun Pinyin trouvé pour '{chineseWord}'.";
         Console.WriteLine(message);
         return message;
     }

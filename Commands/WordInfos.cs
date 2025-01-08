@@ -49,7 +49,8 @@ namespace DictionnaireZhFR
             {
                 return Simplified; // Utilise la version simplifiée si traditionnelle est vide.
             }
-            return $"Simplified: {Simplified}, Traditional: {Traditional}, Pinyin: {Pinyin}, Translations: {Translations}";
+            var localizationService = new LocalizationService();
+            return localizationService.GetTextArg("Simplified: {0}, Traditional: {1}, Pinyin: {2}, Translations: {3}", Simplified, Traditional, Pinyin, Translations);
         }
     }
 }

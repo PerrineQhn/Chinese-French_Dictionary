@@ -4,6 +4,12 @@ namespace DictionnaireZhFR;
 
 class JSONReader
 {
+    private LocalizationService _localizationService;
+
+    public JSONReader(LocalizationService localizationService)
+    {
+        _localizationService = localizationService;
+    }
     public List<Dictionary<string, string>> ReadJSON(string jsonFilePath)
     {
         List<Dictionary<string, string>> records = new List<Dictionary<string, string>>();
@@ -13,7 +19,7 @@ class JSONReader
             // Vérifier si le fichier existe
             if (!File.Exists(jsonFilePath))
             {
-                Console.WriteLine($"Fichier introuvable : {jsonFilePath}");
+                Console.WriteLine(_localizationService.GetTextArg("FileNotFound", jsonFilePath));
                 return records;
             }
 
@@ -25,7 +31,7 @@ class JSONReader
 
             if (jsonData == null || jsonData.Count == 0)
             {
-                Console.WriteLine("Fichier JSON vide ou invalide.");
+                Console.WriteLine(_localizationService.GetText("EmptyOrInvalidJSON"));
                 return records;
             }
 
@@ -52,7 +58,7 @@ class JSONReader
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Erreur : {ex.Message}");
+            Console.WriteLine(_localizationService.GetText("Error") + $" : {ex.Message}");
         }
 
         return records;

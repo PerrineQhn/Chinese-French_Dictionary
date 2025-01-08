@@ -1,7 +1,14 @@
 namespace DictionnaireZhFR;
 public class CommandInterpreter
 {
-    private SaveResearch saveResearch = new SaveResearch();
+    private SaveResearch saveResearch = new SaveResearch(new LocalizationService());
+
+    private readonly LocalizationService _localizationService;
+
+    public CommandInterpreter(LocalizationService localizationService)
+    {
+        _localizationService = localizationService;
+    }
 
     public void Interpret(string input)
     {
@@ -11,6 +18,8 @@ public class CommandInterpreter
         if (arguments.Length > 0)
         {
             string command = arguments[0];
+            string translatedCommand = _localizationService.GetText(command);
+            string originalCommand = _localizationService.GetOriginalCommand(translatedCommand);
 
             if (arguments.Length > 1)
             {
@@ -19,97 +28,114 @@ public class CommandInterpreter
                 string result = string.Empty;
 
                 CommandBase commandInstance;
+                // Console.WriteLine($"Commande Traduite : {translatedCommand}, Commande originale : {originalCommand}, command : {command}");
 
-                switch (command)
+
+                switch (originalCommand)
                 {
+                    
                     case "GetSinogram":
-                        commandInstance = new GetSinogramCommand();
+                    // case _localizationService.GetText("GetSinogram"):
+                        commandInstance = new GetSinogramCommand(_localizationService);
                         break;
 
                     case "GetTraditional":
-                        commandInstance = new GetTraditionalCommand();
+                        commandInstance = new GetTraditionalCommand(_localizationService);
                         break;
 
                     case "GetFrench":
-                        commandInstance = new GetFrenchCommand();
+                        commandInstance = new GetFrenchCommand(_localizationService);
                         break;
 
                     case "GetPinyin":
-                        commandInstance = new GetPinyinCommand();
+                        commandInstance = new GetPinyinCommand(_localizationService);
                         break;
 
                     case "GetAllInformation":
-                        commandInstance = new GetAllInformationCommand();
+                        commandInstance = new GetAllInformationCommand(_localizationService);
                         break;
 
                     case "ReadSaveFile":
-                        commandInstance = new ReadFileCommand();
+                        commandInstance = new ReadFileCommand(_localizationService);
                         break;
 
+                    case "ChangeLanguage":
+                        commandInstance = new ChangeLanguageCommand(_localizationService, arguments);
+                        break; 
+
                     default:
-                        throw new CommandNotFoundException($"Command '{command}' not recognized.");
+                        throw new CommandNotFoundException(_localizationService.GetText("Commande non reconnue.")+ $" '{originalCommand}'"+_localizationService.GetText("non reconnue"));
                 }
 
                 // Exécuter la commande via la méthode Execute
                 result = commandInstance.Execute(word);
 
-                // Demander à l'utilisateur s'il veut sauvegarder la recherche
-                Console.WriteLine("Voulez-vous sauvegarder cette recherche ? (oui/non)");
-                string userInput = Console.ReadLine();
-                if (userInput != null)
+                // Ne demander de sauvegarder que pour les commandes de recherche
+                if (IsSearchCommand(originalCommand))
                 {
-                    userInput = userInput.Trim().ToLower();
-                }
+                    // Console.WriteLine("Voulez-vous sauvegarder cette recherche ? (oui/non)");
+                    Console.WriteLine(_localizationService.GetText("Voulez-vous sauvegarder cette recherche ? (oui/non)"));
+                    string userInput = Console.ReadLine();
+                    if (userInput != null)
+                    {
+                        userInput = userInput.Trim().ToLower();
+                    }
 
-                if (userInput == "oui" || userInput == "o" || userInput == "y" || userInput == "yes")
-                {
-                    // Sauvegarder la recherche et le résultat
-                    saveResearch.Save(command, word, result);
-                    Console.WriteLine("Recherche sauvegardée avec succès dans Output/searches.txt.");
-                }
-                else
-                {
-                    Console.WriteLine("Recherche non sauvegardée.");
+                    if (userInput == "oui" || userInput == "o" || userInput == "y" || userInput == "yes" || userInput == "是")
+                    {
+                        saveResearch.Save(translatedCommand, word, result);
+                        Console.WriteLine(_localizationService.GetText("Recherche sauvegardée avec succès dans Output/searches.txt."));
+                    }
+                    else
+                    {
+                        Console.WriteLine(_localizationService.GetText("Recherche non sauvegardée."));
+                    }
                 }
             }
-            else if (command == "help")
+            else if (originalCommand == "Help")
             {
                 DisplayHelp();
             }
-            else if (command == "exit")
+            else if (originalCommand == "Exit")
             {
-                Console.WriteLine("Au revoir !");
+                Console.WriteLine(_localizationService.GetText("Au revoir !"));
                 Environment.Exit(0);
             }
             else
             {
-                Console.WriteLine("Argument manquant. Veuillez entrer un mot après la commande.");
+                Console.WriteLine(_localizationService.GetText("Argument manquant. Veuillez entrer un mot après la commande."));
             }
         }
 
         else
         {
-            Console.WriteLine("Aucune commande spécifiée.");
-            Console.WriteLine("\nOptions disponibles : GetSinogram, GetTraditional, GetFrench, Pinyin, GetAllInformation");
-            Console.WriteLine("Exemple : GetSinogram bonjour");
-            Console.WriteLine("Exemple : GetFrench 你好");
+            Console.WriteLine(_localizationService.GetText("Aucune commande spécifiée."));
+            Console.WriteLine("\n"+_localizationService.GetText("Options disponibles : GetSinogram, GetTraditional, GetFrench, Pinyin, GetAllInformation"));
+            Console.WriteLine(_localizationService.GetText("Exemple : GetSinogram\tbonjour"));
+            Console.WriteLine(_localizationService.GetText("Exemple : GetFrench\t你好"));
         }
 
     }
     private void DisplayHelp()
     {
-        Console.WriteLine("\nVoici les commandes disponibles (un \\t est utilisé pour séparer la commande des arguments):");
-        Console.WriteLine(" - GetSinogram\t<mot-français> : Obtenir le sinogramme simplifié d'un mot français.");
-        Console.WriteLine(" - GetTraditional\t<mot-chinois_simplifié> : Obtenir le sinogramme traditionnel d'un mot chinois.");
-        Console.WriteLine(" - GetFrench\t<mot-chinois> : Obtenir la traduction française d'un mot chinois.");
-        Console.WriteLine(" - GetPinyin\t<mot-chinois> : Obtenir la translittération pinyin d'un mot chinois.");
-        Console.WriteLine(" - GetAllInformation\t<mot> : Obtenir toutes les informations sur un mot donné.");
-        Console.WriteLine(" - ReadSaveFile\t<chemin_fichier> : Lire le contenu d'un fichier texte comprenant les sauvegardes réalisées.");
-        Console.WriteLine(" - help : Afficher cette aide.");
-        Console.WriteLine(" - exit : Quitter le programme.");
-        Console.WriteLine("\nExemples :");
-        Console.WriteLine(" - GetSinogram\tbonjour");
-        Console.WriteLine(" - GetFrench\t你好");
+        Console.WriteLine("\n"+ _localizationService.GetText("Voici les commandes disponibles (un \\t est utilisé pour séparer la commande des arguments):"));
+        Console.WriteLine(_localizationService.GetText("GetSinogramHelp"));
+        Console.WriteLine(_localizationService.GetText("GetTraditionalHelp"));
+        Console.WriteLine(_localizationService.GetText("GetFrenchHelp"));
+        Console.WriteLine(_localizationService.GetText("GetPinyinHelp"));
+        Console.WriteLine(_localizationService.GetText("GetAllInformationHelp"));
+        Console.WriteLine(_localizationService.GetText("ReadSaveFileHelp"));
+        Console.WriteLine(_localizationService.GetText("ChangeLanguageHelp"));
+        Console.WriteLine(_localizationService.GetText("HelpHelp"));
+        Console.WriteLine(_localizationService.GetText("ExitHelp"));
+        Console.WriteLine(_localizationService.GetText("\nExemples :"));
+        Console.WriteLine(_localizationService.GetText(" - GetSinogram\tbonjour"));
+        Console.WriteLine(_localizationService.GetText(" - GetFrench\t你好"));
+    }
+
+    private bool IsSearchCommand(string command)
+    {
+        return command == "GetSinogram" || command == "GetTraditional" || command == "GetFrench" || command == "GetPinyin" || command == "GetAllInformation";
     }
 
 }

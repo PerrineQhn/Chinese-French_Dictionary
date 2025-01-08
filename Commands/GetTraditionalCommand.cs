@@ -3,6 +3,13 @@ namespace DictionnaireZhFR
     public class GetTraditionalCommand : CommandBase
     {
         private readonly PinyinUtils _pinyinUtils = new PinyinUtils();
+        private readonly LocalizationService _localizationService;
+
+        public GetTraditionalCommand(LocalizationService localizationService)
+        {
+            _localizationService = localizationService;
+        }
+
         public override string Execute(string input)
         {
             List<Dictionary<string, string>> data = dictionnaire.ObtenirDonneesDictionnaire();
@@ -42,27 +49,24 @@ namespace DictionnaireZhFR
 
             if (results.Count == 0)
             {
-                string message = $"Aucun caractère traditionnel trouvé pour '{input}'.";
+                string message = _localizationService.GetText("NoTraditionalFound") + $"'{input}'.";
+                // string message = $"Aucun caractère traditionnel trouvé pour '{input}'.";
                 Console.WriteLine(message);
                 return message;
             }
 
             // Générer un message contenant tous les résultats trouvés
             string output = string.Join("\n", results.Select(w => w.ToString()));
-            Console.WriteLine($"Caractères traditionnels trouvés pour '{input}':\n{output}");
+            Console.WriteLine(_localizationService.GetText("TraditionalFound") + $"'{input}':\n{output}");
+            // Console.WriteLine($"Caractères traditionnels trouvés pour '{input}':\n{output}");
             return output;
         }
 
         private WordInfo CreateWordInfo(Dictionary<string, string> entry)
         {
             return new WordInfo(
-                $" Traditionnel: {entry["Trad"]}"
+                $" {_localizationService.GetText("Traditional")}: {entry["Trad"]}"
             );
         }
-
-        // public override string GetHelp()
-        // {
-        //     return "Obtenir le sinogramme traditionnel d'un mot chinois en entrant le sinogramme simplifié ou le pinyin.";
-        // }
     }
 }

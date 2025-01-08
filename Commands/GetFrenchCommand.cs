@@ -2,6 +2,13 @@ namespace DictionnaireZhFR
 {
     public class GetFrenchCommand : CommandBase
     {
+        public readonly LocalizationService _localizationService;
+
+        public GetFrenchCommand(LocalizationService localizationService)
+        {
+            _localizationService = localizationService;
+        }
+
         public override string Execute(string chineseWord)
         {
             List<Dictionary<string, string>> data = dictionnaire.ObtenirDonneesDictionnaire();
@@ -18,13 +25,15 @@ namespace DictionnaireZhFR
                         entry["Translations"]
                     );
 
-                    string result = $"Traduction française pour '{chineseWord}': {wordInfo.Translations}";
+                    string result = _localizationService.GetText("FrenchTranslation") + $"'{chineseWord}': {wordInfo.Translations}";
+                    // string result = $"Traduction française pour '{chineseWord}': {wordInfo.Translations}";
                     Console.WriteLine(result);
                     return result;
                 }
             }
 
-            string message = $"Aucune traduction trouvée pour '{chineseWord}'.";
+            string message = _localizationService.GetText("NoTranslationFound") + $"'{chineseWord}'.";
+            // string message = $"Aucune traduction trouvée pour '{chineseWord}'.";
             Console.WriteLine(message);
             return message;
         }

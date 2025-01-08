@@ -4,9 +4,12 @@ public class SaveResearch
 {
     private readonly string folderPath = "Output";
     private readonly string filePath;
+    private readonly LocalizationService _localizationService;
 
-    public SaveResearch()
+    public SaveResearch(LocalizationService localizationService)
     {
+        _localizationService = localizationService;
+
         // Créer le dossier si nécessaire
         if (!Directory.Exists(folderPath))
         {
@@ -23,14 +26,14 @@ public class SaveResearch
         {
             using (StreamWriter sw = File.AppendText(filePath))
             {
-                sw.WriteLine($"{DateTime.Now}: Commande = {command}, Mot = {word}");
-                sw.WriteLine($"Résultat : {result}");
+                sw.WriteLine(_localizationService.GetTextArg("{0} : Command = {1}, Word = {2}", DateTime.Now, command, word));
+                sw.WriteLine(_localizationService.GetTextArg("Result : {0}", result));
                 sw.WriteLine(new string('-', 50)); // Séparation pour plus de lisibilité
             }
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Erreur lors de la sauvegarde de la recherche : {ex.Message}");
+            Console.WriteLine(_localizationService.GetText("ErrorSavingSearch") + $" : {ex.Message}");
         }
     }
 }

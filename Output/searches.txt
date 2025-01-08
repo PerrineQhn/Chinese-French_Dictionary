@@ -28,3 +28,807 @@ Résultat :  Simplifié: 你好 (ni3 hao3)
  Simplifié: 招呼 (zhao1 hu5)
  Simplifié: 问好 (wen4 hao3)
 --------------------------------------------------
+08/01/2025 16:14:15 : Commande = GetSinogram, Mot = bonjour
+Résultat :  Simplifié: 你好 (ni3 hao3)
+ Simplifié: 哈啰 (ha1 luo1)
+ Simplifié: 大家好 (da4 jia1 hao3)
+ Simplifié: 您好 (nin2 hao3)
+ Simplifié: 招呼 (zhao1 hu5)
+ Simplifié: 问好 (wen4 hao3)
+--------------------------------------------------
+08/01/2025 16:14:41 : Commande = GetSinogram, Mot = salut
+Résultat :  Simplified: 作揖 (zuo4 yi1)
+ Simplified: 你好 (ni3 hao3)
+ Simplified: 再拜 (zai4 bai4)
+ Simplified: 哈啰 (ha1 luo1)
+ Simplified: 嗨 (hai1)
+ Simplified: 寒喧语 (han2 xuan1 yu3)
+ Simplified: 托福 (tuo1 fu2)
+ Simplified: 敬礼 (jing4 li3)
+ Simplified: 答 (da1)
+ Simplified: 致意 (zhi4 yi4)
+ Simplified: 逃生 (tao2 sheng1)
+ Simplified: 问候 (wen4 hou4)
+ Simplified: 餧 (wei4)
+--------------------------------------------------
+08/01/2025 16:36:16 : Commande = GetAllInformation, Mot = manger
+Résultat : Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 上館子
+The simplified sinogram: 上馆子
+The pinyin: shang4 guan3 zi5
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 下館子
+The simplified sinogram: 下馆子
+The pinyin: xia4 guan3 zi5
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 不好吃
+The simplified sinogram: 不好吃
+The pinyin: bu4 hao3 chi1
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 侑
+The simplified sinogram: 侑
+The pinyin: you4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 喫
+The simplified sinogram: 吃
+The pinyin: chi1
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃不下
+The simplified sinogram: 吃不下
+The pinyin: chi1 bu5 xia4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃住
+The simplified sinogram: 吃住
+The pinyin: chi1 zhu4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃包子
+The simplified sinogram: 吃包子
+The pinyin: chi1 bao1 zi5
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃喝拉撒睡
+The simplified sinogram: 吃喝拉撒睡
+The pinyin: chi1 he1 la1 sa1 shui4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃喝玩樂
+The simplified sinogram: 吃喝玩乐
+The pinyin: chi1 he1 wan2 le4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃嘴巴子
+The simplified sinogram: 吃嘴巴子
+The pinyin: chi1 zui3 ba1 zi5
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃完
+The simplified sinogram: 吃完
+The pinyin: chi1 wan2
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃齋
+The simplified sinogram: 吃斋
+The pinyin: chi1 zhai1
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃槍子
+The simplified sinogram: 吃枪子
+The pinyin: chi1 qiang1 zi3
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃法
+The simplified sinogram: 吃法
+The pinyin: chi1 fa3
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃糧不管事
+The simplified sinogram: 吃粮不管事
+The pinyin: chi1 liang2 bu4 guan3 shi4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃素
+The simplified sinogram: 吃素
+The pinyin: chi1 su4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃耳光
+The simplified sinogram: 吃耳光
+The pinyin: chi1 er3 guang1
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃肉
+The simplified sinogram: 吃肉
+The pinyin: chi1 rou4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃食
+The simplified sinogram: 吃食
+The pinyin: chi1 shi2
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃飯
+The simplified sinogram: 吃饭
+The pinyin: chi1 fan4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃飯皇帝大
+The simplified sinogram: 吃饭皇帝大
+The pinyin: chi1 fan4 huang2 di4 da4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃飽
+The simplified sinogram: 吃饱
+The pinyin: chi1 bao3
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃館子
+The simplified sinogram: 吃馆子
+The pinyin: chi1 guan3 zi5
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃饅頭
+The simplified sinogram: 吃馒头
+The pinyin: chi1 man2 tou5
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃香喝辣
+The simplified sinogram: 吃香喝辣
+The pinyin: chi1 xiang1 he1 la4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 吃鴨蛋
+The simplified sinogram: 吃鸭蛋
+The pinyin: chi1 ya1 dan4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 噉
+The simplified sinogram: 啖
+The pinyin: dan4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 啗
+The simplified sinogram: 啗
+The pinyin: dan4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 餵
+The simplified sinogram: 喂
+The pinyin: wei4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 大吃
+The simplified sinogram: 大吃
+The pinyin: da4 chi1
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 好吃
+The simplified sinogram: 好吃
+The pinyin: hao3 chi1
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 開吃
+The simplified sinogram: 开吃
+The pinyin: kai1 chi1
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 打邊爐
+The simplified sinogram: 打边炉
+The pinyin: da3 bian1 lu2
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 打飯
+The simplified sinogram: 打饭
+The pinyin: da3 fan4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 有味道
+The simplified sinogram: 有味道
+The pinyin: you3 wei4 dao4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 歁
+The simplified sinogram: 歁
+The pinyin: kan3
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 狼吞虎嚥
+The simplified sinogram: 狼吞虎咽
+The pinyin: lang2 tun1 hu3 yan4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 用
+The simplified sinogram: 用
+The pinyin: yong4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 用餐
+The simplified sinogram: 用餐
+The pinyin: yong4 can1
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 用飯
+The simplified sinogram: 用饭
+The pinyin: yong4 fan4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 癢
+The simplified sinogram: 痒
+The pinyin: yang3
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 癢癢
+The simplified sinogram: 痒痒
+The pinyin: yang3 yang5
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 箸
+The simplified sinogram: 箸
+The pinyin: zhu4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 細嚼慢嚥
+The simplified sinogram: 细嚼慢咽
+The pinyin: xi4 jiao2 man4 yan4
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 自食惡果
+The simplified sinogram: 自食恶果
+The pinyin: zi4 shi2 e4 guo3
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 良心喂狗
+The simplified sinogram: 良心喂狗
+The pinyin: liang2 xin1 wei4 gou3
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 茹
+The simplified sinogram: 茹
+The pinyin: ru2
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 覓食
+The simplified sinogram: 觅食
+The pinyin: mi4 shi2
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 蹭
+The simplified sinogram: 蹭
+The pinyin: ceng2
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 食
+The simplified sinogram: 食
+The pinyin: shi2
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 餐
+The simplified sinogram: 餐
+The pinyin: can1
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 餐廳
+The simplified sinogram: 餐厅
+The pinyin: can1 ting1
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 餐桌
+The simplified sinogram: 餐桌
+The pinyin: can1 zhuo1
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 飯桌
+The simplified sinogram: 饭桌
+The pinyin: fan4 zhuo1
+
+Information for 'manger' (FrenchTranslation):
+The traditional sinogram is: 飲食
+The simplified sinogram: 饮食
+The pinyin: yin3 shi2
+
+--------------------------------------------------
+08/01/2025 16:42:04 : Commande = GetAllInformation, Mot = manger
+Résultat : 关于'manger'的信息（Translation）：
+传统汉字是：上館子
+简化汉字：上馆子
+拼音：shang4 guan3 zi5
+翻译：manger dehors, manger au restaurant
+关于'manger'的信息（Translation）：
+传统汉字是：下館子
+简化汉字：下馆子
+拼音：xia4 guan3 zi5
+翻译：manger dehors, manger dans un restaurant
+关于'manger'的信息（Translation）：
+传统汉字是：不好吃
+简化汉字：不好吃
+拼音：bu4 hao3 chi1
+翻译：pas bon (à manger), mauvais gout, pas savoureux, indigeste
+关于'manger'的信息（Translation）：
+传统汉字是：侑
+简化汉字：侑
+拼音：you4
+翻译：envie de manger
+关于'manger'的信息（Translation）：
+传统汉字是：喫
+简化汉字：吃
+拼音：chi1
+翻译：manger, prendre qch (par voie orale), ingérer un aliment, anéantir, absorber, s'imprégner de
+关于'manger'的信息（Translation）：
+传统汉字是：吃不下
+简化汉字：吃不下
+拼音：chi1 bu5 xia4
+翻译：être incapable de manger plus
+关于'manger'的信息（Translation）：
+传统汉字是：吃住
+简化汉字：吃住
+拼音：chi1 zhu4
+翻译：nourriture et logement, rester (à un endroit) et (y) manger
+关于'manger'的信息（Translation）：
+传统汉字是：吃包子
+简化汉字：吃包子
+拼音：chi1 bao1 zi5
+翻译：(argot) caresser la poitrine d'une femme, manger des baozi
+关于'manger'的信息（Translation）：
+传统汉字是：吃喝拉撒睡
+简化汉字：吃喝拉撒睡
+拼音：chi1 he1 la1 sa1 shui4
+翻译：manger, boire, déféquer, uriner et dormir, (fig.) routine quotidienne et ordinaire
+关于'manger'的信息（Translation）：
+传统汉字是：吃喝玩樂
+简化汉字：吃喝玩乐
+拼音：chi1 he1 wan2 le4
+翻译：(expr. idiom.) manger, boire et être joyeux, s'abandonner à une vie de plaisir
+关于'manger'的信息（Translation）：
+传统汉字是：吃嘴巴子
+简化汉字：吃嘴巴子
+拼音：chi1 zui3 ba1 zi5
+翻译：se manger une baffe, prendre une tarte, prendre une claque
+关于'manger'的信息（Translation）：
+传统汉字是：吃完
+简化汉字：吃完
+拼音：chi1 wan2
+翻译：finir de manger, finir son repas, finir son assiette, liquider
+关于'manger'的信息（Translation）：
+传统汉字是：吃齋
+简化汉字：吃斋
+拼音：chi1 zhai1
+翻译：s'abstenir de manger de la viande, être végétarien
+关于'manger'的信息（Translation）：
+传统汉字是：吃槍子
+简化汉字：吃枪子
+拼音：chi1 qiang1 zi3
+翻译：se manger une bastos, prendre une balle
+关于'manger'的信息（Translation）：
+传统汉字是：吃法
+简化汉字：吃法
+拼音：chi1 fa3
+翻译：façon de manger, comment qch est mangé, la manière dont un plat est préparé
+关于'manger'的信息（Translation）：
+传统汉字是：吃糧不管事
+简化汉字：吃粮不管事
+拼音：chi1 liang2 bu4 guan3 shi4
+翻译：(expr. idiom.) manger sans travailler
+关于'manger'的信息（Translation）：
+传统汉字是：吃素
+简化汉字：吃素
+拼音：chi1 su4
+翻译：suivre une régime végétarien, éviter de manger viande ou poisson
+关于'manger'的信息（Translation）：
+传统汉字是：吃耳光
+简化汉字：吃耳光
+拼音：chi1 er3 guang1
+翻译：se manger une baffe, prendre une claque
+关于'manger'的信息（Translation）：
+传统汉字是：吃肉
+简化汉字：吃肉
+拼音：chi1 rou4
+翻译：manger de la viande
+关于'manger'的信息（Translation）：
+传统汉字是：吃食
+简化汉字：吃食
+拼音：chi1 shi2
+翻译：manger (pour un animal), se nourrir
+关于'manger'的信息（Translation）：
+传统汉字是：吃飯
+简化汉字：吃饭
+拼音：chi1 fan4
+翻译：manger, prendre un repas, ingérer de la nourriture
+关于'manger'的信息（Translation）：
+传统汉字是：吃飯皇帝大
+简化汉字：吃饭皇帝大
+拼音：chi1 fan4 huang2 di4 da4
+翻译：(expr. idiom.) manger est plus important que l'empereur
+关于'manger'的信息（Translation）：
+传统汉字是：吃飽
+简化汉字：吃饱
+拼音：chi1 bao3
+翻译：manger à sa faim, manger à satiété, se rassasier de qch
+关于'manger'的信息（Translation）：
+传统汉字是：吃館子
+简化汉字：吃馆子
+拼音：chi1 guan3 zi5
+翻译：manger dehors, manger au restaurant
+关于'manger'的信息（Translation）：
+传统汉字是：吃饅頭
+简化汉字：吃馒头
+拼音：chi1 man2 tou5
+翻译：(argot) se faire rosser, prendre des pains, se faire battre, manger des mantous
+关于'manger'的信息（Translation）：
+传统汉字是：吃香喝辣
+简化汉字：吃香喝辣
+拼音：chi1 xiang1 he1 la4
+翻译：(expr. idiom.) manger de la nourriture délicieuse et boire de l'alcool fort, (fig.) bien vivre
+关于'manger'的信息（Translation）：
+传统汉字是：吃鴨蛋
+简化汉字：吃鸭蛋
+拼音：chi1 ya1 dan4
+翻译：(argot) obtenir un zéro à un examen, manger un oeuf de canard
+关于'manger'的信息（Translation）：
+传统汉字是：噉
+简化汉字：啖
+拼音：dan4
+翻译：manger, nourrir, alimenter, attirer, séduire, entraîner, allécher
+关于'manger'的信息（Translation）：
+传统汉字是：啗
+简化汉字：啗
+拼音：dan4
+翻译：manger, mâcher, mordre, appâter, attirer
+关于'manger'的信息（Translation）：
+传统汉字是：餵
+简化汉字：喂
+拼音：wei4
+翻译：nourrir, faire manger, élever
+关于'manger'的信息（Translation）：
+传统汉字是：大吃
+简化汉字：大吃
+拼音：da4 chi1
+翻译：avaler, manger rapidement
+关于'manger'的信息（Translation）：
+传统汉字是：好吃
+简化汉字：好吃
+拼音：hao3 chi1
+翻译：bon (à manger), agréable (au gout), savoureux, succulent, délicieux, goûteux
+关于'manger'的信息（Translation）：
+传统汉字是：開吃
+简化汉字：开吃
+拼音：kai1 chi1
+翻译：commencer à manger
+关于'manger'的信息（Translation）：
+传统汉字是：打邊爐
+简化汉字：打边炉
+拼音：da3 bian1 lu2
+翻译：(cant.) manger du ragoût, ragoût
+关于'manger'的信息（Translation）：
+传统汉字是：打飯
+简化汉字：打饭
+拼音：da3 fan4
+翻译：manger à la cantine, obtenir de la nourriture à la cantine
+关于'manger'的信息（Translation）：
+传统汉字是：有味道
+简化汉字：有味道
+拼音：you3 wei4 dao4
+翻译：C'est bon (à manger) !
+关于'manger'的信息（Translation）：
+传统汉字是：歁
+简化汉字：歁
+拼音：kan3
+翻译：insatisfait (de manger)
+关于'manger'的信息（Translation）：
+传统汉字是：狼吞虎嚥
+简化汉字：狼吞虎咽
+拼音：lang2 tun1 hu3 yan4
+翻译：(expr. idiom.) engloutir, dévorer sa nourriture, manger comme un ogre, bouffer comme un morfal
+关于'manger'的信息（Translation）：
+传统汉字是：用
+简化汉字：用
+拼音：yong4
+翻译：utiliser, employer (qch), avoir à faire ceci ou cela, manger ou boire, frais ou dépenses, utilité, c'est pourquoi, donc, par conséquent, avec
+关于'manger'的信息（Translation）：
+传统汉字是：用餐
+简化汉字：用餐
+拼音：yong4 can1
+翻译：manger un repas
+关于'manger'的信息（Translation）：
+传统汉字是：用飯
+简化汉字：用饭
+拼音：yong4 fan4
+翻译：manger, prendre un repas
+关于'manger'的信息（Translation）：
+传统汉字是：癢
+简化汉字：痒
+拼音：yang3
+翻译：gratter, démanger, démangeaison
+关于'manger'的信息（Translation）：
+传统汉字是：癢癢
+简化汉字：痒痒
+拼音：yang3 yang5
+翻译：chatouiller, démanger
+关于'manger'的信息（Translation）：
+传统汉字是：箸
+简化汉字：箸
+拼音：zhu4
+翻译：bâtonnet pour manger
+关于'manger'的信息（Translation）：
+传统汉字是：細嚼慢嚥
+简化汉字：细嚼慢咽
+拼音：xi4 jiao2 man4 yan4
+翻译：(expr. idiom.) manger lentement
+关于'manger'的信息（Translation）：
+传统汉字是：自食惡果
+简化汉字：自食恶果
+拼音：zi4 shi2 e4 guo3
+翻译：(expr. idiom.) manger son propre fruit amer, subir les conséquences de ses propres actions
+关于'manger'的信息（Translation）：
+传统汉字是：良心喂狗
+简化汉字：良心喂狗
+拼音：liang2 xin1 wei4 gou3
+翻译：(expr. idiom.) donner sa conscience à manger aux chiens, dépourvu de conscience
+关于'manger'的信息（Translation）：
+传统汉字是：茹
+简化汉字：茹
+拼音：ru2
+翻译：manger, (fig.) endurer, odeur putride
+关于'manger'的信息（Translation）：
+传统汉字是：覓食
+简化汉字：觅食
+拼音：mi4 shi2
+翻译：chasser pour manger, gagner sa vie
+关于'manger'的信息（Translation）：
+传统汉字是：蹭
+简化汉字：蹭
+拼音：ceng2
+翻译：s'inviter à manger (chez des amis)
+关于'manger'的信息（Translation）：
+传统汉字是：食
+简化汉字：食
+拼音：shi2
+翻译：manger, nourriture, aliment, éclipse
+关于'manger'的信息（Translation）：
+传统汉字是：餐
+简化汉字：餐
+拼音：can1
+翻译：manger, prendre le repas, aliment, repas
+关于'manger'的信息（Translation）：
+传统汉字是：餐廳
+简化汉字：餐厅
+拼音：can1 ting1
+翻译：salle à manger, cantine, réfectoire
+关于'manger'的信息（Translation）：
+传统汉字是：餐桌
+简化汉字：餐桌
+拼音：can1 zhuo1
+翻译：table (de salle à manger)
+关于'manger'的信息（Translation）：
+传统汉字是：飯桌
+简化汉字：饭桌
+拼音：fan4 zhuo1
+翻译：table à manger
+关于'manger'的信息（Translation）：
+传统汉字是：飲食
+简化汉字：饮食
+拼音：yin3 shi2
+翻译：le boire et le manger, nourriture et boisson, régime alimentaire
+--------------------------------------------------
+08/01/2025 16:44:43 : Commande = 获取所有信息, Mot = aimer
+Résultat : 关于'aimer'的信息（Translation）：
+传统汉字是：免責
+简化汉字：免责
+拼音：mian3 ze2
+翻译：avis de non responsabilité, déni de responsabilité, disclaimer
+关于'aimer'的信息（Translation）：
+传统汉字是：喜
+简化汉字：喜
+拼音：xi3
+翻译：aimer, adorer, joyeux, heureux
+关于'aimer'的信息（Translation）：
+传统汉字是：喜好
+简化汉字：喜好
+拼音：xi3 hao4
+翻译：apprécier, aimer, gouts, préférences
+关于'aimer'的信息（Translation）：
+传统汉字是：喜歡
+简化汉字：喜欢
+拼音：xi3 huan5
+翻译：aimer, apprécier, se plaire (dans), prendre plaisir à, avoir du gout pour, être amateur de, kiffer
+关于'aimer'的信息（Translation）：
+传统汉字是：喜愛
+简化汉字：喜爱
+拼音：xi3 ai4
+翻译：aimer, avoir du gout pour
+关于'aimer'的信息（Translation）：
+传统汉字是：好事
+简化汉字：好事
+拼音：hao4 shi4
+翻译：aimer se mêler des affaires des autres, aimer susciter des histoires, charité, heureuse occasion
+关于'aimer'的信息（Translation）：
+传统汉字是：嫌
+简化汉字：嫌
+拼音：xian2
+翻译：soupçon, rancune, détester, ne pas aimer
+关于'aimer'的信息（Translation）：
+传统汉字是：嫪
+简化汉字：嫪
+拼音：lao4
+翻译：aimer profondément, être vivement épris de
+关于'aimer'的信息（Translation）：
+传统汉字是：寵
+简化汉字：宠
+拼音：chong3
+翻译：aimer, choyer, dorloter
+关于'aimer'的信息（Translation）：
+传统汉字是：待見
+简化汉字：待见
+拼音：dai4 jian5
+翻译：(famil.) aimer
+关于'aimer'的信息（Translation）：
+传统汉字是：憐
+简化汉字：怜
+拼音：lian2
+翻译：avoir pitié de, compatir à, chérir, aimer tendrement
+关于'aimer'的信息（Translation）：
+传统汉字是：憐愛
+简化汉字：怜爱
+拼音：lian2 ai4
+翻译：avoir une tendre affection pour, aimer avec tendresse, prendre soin de qqn
+关于'aimer'的信息（Translation）：
+传统汉字是：懟
+简化汉字：怼
+拼音：dui4
+翻译：mécontent, ne pas aimer, haine
+关于'aimer'的信息（Translation）：
+传统汉字是：戀
+简化汉字：恋
+拼音：lian4
+翻译：amour, s'attacher, aimer profondément
+关于'aimer'的信息（Translation）：
+传统汉字是：敬愛
+简化汉字：敬爱
+拼音：jing4 ai4
+翻译：vénérer, aimer
+关于'aimer'的信息（Translation）：
+传统汉字是：文責自負
+简化汉字：文责自负
+拼音：wen2 ze2 zi4 fu4
+翻译：l'auteur assume l'entière responsabilité des opinions exprimées ici (disclaimer)
+关于'aimer'的信息（Translation）：
+传统汉字是：暗戀
+简化汉字：暗恋
+拼音：an4 lian4
+翻译：amour non partagé, aimer en secret, ne pas déclarer sa flamme
+关于'aimer'的信息（Translation）：
+传统汉字是：點贊
+简化汉字：点赞
+拼音：dian3 zan4
+翻译：aimer (une publication en ligne sur Weibo, Facebook etc.)
+关于'aimer'的信息（Translation）：
+传统汉字是：熱愛
+简化汉字：热爱
+拼音：re4 ai4
+翻译：aimer ardemment, adorer
+关于'aimer'的信息（Translation）：
+传统汉字是：煞到
+简化汉字：煞到
+拼音：sha4 dao4
+翻译：(Tw) aimer, tomber amoureux de
+关于'aimer'的信息（Translation）：
+传统汉字是：愛
+简化汉字：爱
+拼音：ai4
+翻译：amour, aimer, affection, affectionner, être amateur de, adorer
+关于'aimer'的信息（Translation）：
+传统汉字是：愛不釋手
+简化汉字：爱不释手
+拼音：ai4 bu4 shi4 shou3
+翻译：(expr. idiom.) aimer tellement une chose qu'on ne peut pas la lâcher
+关于'aimer'的信息（Translation）：
+传统汉字是：愛國
+简化汉字：爱国
+拼音：ai4 guo2
+翻译：aimer la patrie, patriotique
+关于'aimer'的信息（Translation）：
+传统汉字是：愛戀
+简化汉字：爱恋
+拼音：ai4 lian4
+翻译：aimer, être amoureux de qqn
+关于'aimer'的信息（Translation）：
+传统汉字是：愛慕
+简化汉字：爱慕
+拼音：ai4 mu4
+翻译：dévotion, adoration, adorer, attachement, aimer, chérir
+关于'aimer'的信息（Translation）：
+传统汉字是：愛戴
+简化汉字：爱戴
+拼音：ai4 dai4
+翻译：aimer et respecter, amour et respect
+关于'aimer'的信息（Translation）：
+传统汉字是：愛港
+简化汉字：爱港
+拼音：ai4 Gang3
+翻译：aimer Hong Kong
+关于'aimer'的信息（Translation）：
+传统汉字是：愛笑
+简化汉字：爱笑
+拼音：ai4 xiao4
+翻译：aimer rire, adorer rire
+关于'aimer'的信息（Translation）：
+传统汉字是：愛財如命
+简化汉字：爱财如命
+拼音：ai4 cai2 ru2 ming4
+翻译：(expr. idiom.) aimer l'argent comme la vie, avare, radin, grippe-sou
+关于'aimer'的信息（Translation）：
+传统汉字是：珍愛
+简化汉字：珍爱
+拼音：zhen1 ai4
+翻译：chérir, apprécier hautement, aimer
+关于'aimer'的信息（Translation）：
+传统汉字是：相思
+简化汉字：相思
+拼音：xiang1 si1
+翻译：être amoureux, être épris l'un de l'autre, s'aimer (mutuellement)
+关于'aimer'的信息（Translation）：
+传统汉字是：相戀
+简化汉字：相恋
+拼音：xiang1 lian4
+翻译：s'aimer les uns les autres
+关于'aimer'的信息（Translation）：
+传统汉字是：相愛
+简化汉字：相爱
+拼音：xiang1 ai4
+翻译：s'aimer (mutuellement)
+关于'aimer'的信息（Translation）：
+传统汉字是：看不慣
+简化汉字：看不惯
+拼音：kan4 bu5 guan4
+翻译：aversion, ne pas aimer, ne pas pouvoir supporter
+关于'aimer'的信息（Translation）：
+传统汉字是：眷戀
+简化汉字：眷恋
+拼音：juan4 lian4
+翻译：manquer (sentiment), se rappeler avec nostalgie, nostalgie, être attaché à, aimer, chérir
+关于'aimer'的信息（Translation）：
+传统汉字是：累覺不愛
+简化汉字：累觉不爱
+拼音：lei4 jue2 bu4 ai4
+翻译：trop fatigué pour aimer (argot pour exprimer la dépression)
+关于'aimer'的信息（Translation）：
+传统汉字是：翃
+简化汉字：翃
+拼音：hong2
+翻译：essaimer
+关于'aimer'的信息（Translation）：
+传统汉字是：譈
+简化汉字：譈
+拼音：dui4
+翻译：ne pas aimer, haïr
+关于'aimer'的信息（Translation）：
+传统汉字是：講義氣
+简化汉字：讲义气
+拼音：jiang3 yi4 qi4
+翻译：être loyal (à un ami), aimer la loyauté
+关于'aimer'的信息（Translation）：
+传统汉字是：謹訂
+简化汉字：谨订
+拼音：jin3 ding4
+翻译：aimerait inviter (style épistolaire)
+关于'aimer'的信息（Translation）：
+传统汉字是：迷戀
+简化汉字：迷恋
+拼音：mi2 lian4
+翻译：s'éprendre, aimer éperdument, être ensorcelé par
+关于'aimer'的信息（Translation）：
+传统汉字是：酷愛
+简化汉字：酷爱
+拼音：ku4 ai4
+翻译：aimer passionnément, adorer
+关于'aimer'的信息（Translation）：
+传统汉字是：鍾愛
+简化汉字：钟爱
+拼音：zhong1 ai4
+翻译：aimer profondément
+--------------------------------------------------

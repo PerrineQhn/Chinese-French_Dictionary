@@ -2,12 +2,20 @@ namespace DictionnaireZhFR;
 
 public class ReadFileCommand : CommandBase
 {
+    private readonly LocalizationService _localizationService;
+
+    public ReadFileCommand(LocalizationService localizationService)
+    {
+        _localizationService = localizationService;
+    }
+
     public override string Execute(string filepath)
     {
         if (!File.Exists(filepath))
         {
-            Console.WriteLine($"Le fichier '{filepath}' est introuvable.");
-            return $"Le fichier '{filepath}' est introuvable.";
+            Console.WriteLine(_localizationService.GetTextArg("FileNotFound", filepath));
+            // Console.WriteLine($"Le fichier '{filepath}' est introuvable.");
+            return _localizationService.GetTextArg("FileNotFound", filepath);
         }    
 
         try
@@ -18,7 +26,7 @@ public class ReadFileCommand : CommandBase
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"Erreur : {ex.Message}");
+            Console.WriteLine(_localizationService.GetText("Error") + $" : {ex.Message}");
             return $"Erreur : {ex.Message}";
         }
     }
