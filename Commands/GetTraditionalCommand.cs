@@ -4,15 +4,18 @@ namespace DictionnaireZhFR
     {
         private readonly PinyinUtils _pinyinUtils = new PinyinUtils();
         private readonly LocalizationService _localizationService;
+        private readonly Dictionnaire _dictionnaire;
+
 
         public GetTraditionalCommand(LocalizationService localizationService)
         {
             _localizationService = localizationService;
+            _dictionnaire = new Dictionnaire(localizationService);
         }
 
         public override string Execute(string input)
         {
-            List<Dictionary<string, string>> data = dictionnaire.ObtenirDonneesDictionnaire();
+            List<Dictionary<string, string>> data = _dictionnaire.ObtenirDonneesDictionnaire();
 
             // Normaliser l'entrée
             string normalizedInput = input.Trim().ToLower();
