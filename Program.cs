@@ -31,7 +31,7 @@
 
             while (true)
             {
-                Console.WriteLine("\n" + localizationService.GetText("Entrez une commande (ou tapez 'quitter' pour quitter) :"));
+                Console.WriteLine("\n" + localizationService.GetText("Entrez une commande (ou tapez 'Quitter' pour quitter) :"));
                 Console.WriteLine(localizationService.GetText("GetSinogram") + ", " +
                                 localizationService.GetText("GetTraditional") + ", " +
                                 localizationService.GetText("GetFrench") + ", " +

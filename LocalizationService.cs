@@ -16,7 +16,7 @@ public class LocalizationService
         {
             { "fr" , new Dictionary<string, string>()
                 {   
-                    { "Entrez une commande (ou tapez 'quitter' pour quitter) :", "Entrez une commande (ou tapez 'quitter' pour quitter) :"},
+                    { "Entrez une commande (ou tapez 'Quitter' pour quitter) :", "Entrez une commande (ou tapez 'Quitter' pour quitter) :"},
                     { "GetSinogram", "ObtenirSinogramme" },
                     { "GetTraditional", "ObtenirTraditionnel" },
                     { "GetFrench", "ObtenirFrancais" },
@@ -84,7 +84,7 @@ public class LocalizationService
             },
             { "en" , new Dictionary<string, string>()
                 {   
-                    { "Entrez une commande (ou tapez 'quitter' pour quitter) :", "Enter a command (or type 'exit' to exit):"},
+                    { "Entrez une commande (ou tapez 'Quitter' pour quitter) :", "Enter a command (or type 'Exit' to exit):"},
                     { "GetSinogram", "GetSinogram" },
                     { "GetTraditional", "GetTraditional" },
                     { "GetFrench", "GetFrench" },
@@ -153,7 +153,7 @@ public class LocalizationService
 
             {"zh", new Dictionary<string, string>()
                 {
-                    { "Entrez une commande (ou tapez 'quitter' pour quitter) :", "输入命令（或键入“退出”以退出）：" },
+                    { "Entrez une commande (ou tapez 'Quitter' pour quitter) :", "输入命令（或键入“退出”以退出）：" },
                     { "GetSinogram", "获取汉字" },
                     { "GetTraditional", "获取繁体" },
                     { "GetFrench", "获取法文" },

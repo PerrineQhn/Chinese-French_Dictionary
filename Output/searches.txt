@@ -832,3 +832,10 @@ Résultat : 关于'aimer'的信息（Translation）：
 拼音：zhong1 ai4
 翻译：aimer profondément
 --------------------------------------------------
+08/01/2025 16:58:46 : Commande = ObtenirSinogramme, Mot = au revoir
+Résultat :  Simplifié: 再见 (zai4 jian4)
+ Simplifié: 告别 (gao4 bie2)
+ Simplifié: 告辞 (gao4 ci2)
+ Simplifié: 摇手 (yao2 shou3)
+ Simplifié: 道别 (dao4 bie2)
+--------------------------------------------------
