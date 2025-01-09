@@ -30,16 +30,6 @@ class Dictionnary_Creation
 
                 foreach (XElement word in doc.Descendants("word"))
                 {
-                    string GetElementValue(XElement parent, string elementName)
-                    {
-                        XElement element = parent.Element(elementName);
-                        if (element != null)
-                        {
-                            return element.Value;
-                        }
-                        return string.Empty;
-                    }
-
                     // Utilisation de la méthode pour obtenir les valeurs
                     string simpl = GetElementValue(word, "simp");
                     string trad = GetElementValue(word, "trad");
@@ -65,6 +55,16 @@ class Dictionnary_Creation
         {
             Console.WriteLine(_localizationService.GetText("Error") + $" : {ex.Message}");
         }
+    }
+
+    private string GetElementValue(XElement parent, string elementName)
+    {
+        XElement element = parent.Element(elementName);
+        if (element != null)
+        {
+            return element.Value;
+        }
+        return string.Empty;
     }
 
     private void SaveToJson(List<Dictionary<string, object>> words, string jsonFilePath)
