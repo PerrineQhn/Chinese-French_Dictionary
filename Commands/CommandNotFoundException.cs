@@ -7,7 +7,7 @@ namespace DictionnaireZhFR
         {
         }
         
-        public CommandNotFoundException(string message) : base()
+        public CommandNotFoundException(string message) : base(message)
         {
         }
     }
