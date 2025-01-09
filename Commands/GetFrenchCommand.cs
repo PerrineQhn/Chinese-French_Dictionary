@@ -23,14 +23,12 @@ namespace DictionnaireZhFR
                     );
 
                     string result = _localizationService.GetText("FrenchTranslation") + $"'{chineseWord}': {wordInfo.Translations}";
-                    // string result = $"Traduction française pour '{chineseWord}': {wordInfo.Translations}";
                     Console.WriteLine(result);
                     return result;
                 }
             }
 
             string message = _localizationService.GetText("NoTranslationFound") + $"'{chineseWord}'.";
-            // string message = $"Aucune traduction trouvée pour '{chineseWord}'.";
             Console.WriteLine(message);
             return message;
         }

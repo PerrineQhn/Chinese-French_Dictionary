@@ -11,7 +11,6 @@ public class ReadFileCommand : CommandBase
         if (!File.Exists(filepath))
         {
             Console.WriteLine(_localizationService.GetTextArg("FileNotFound", filepath));
-            // Console.WriteLine($"Le fichier '{filepath}' est introuvable.");
             return _localizationService.GetTextArg("FileNotFound", filepath);
         }    
 

@@ -11,6 +11,6 @@ public abstract class CommandBase
         dictionnaire = new Dictionnaire(localizationService);
     }
 
-    // Méthode abstraite que chaque commande doit implémenter et retourner une chaîne
+    // Méthode abstraite que chaque commande doit implémenter et retourner une chaîne de caractères
     public abstract string Execute(string input);
 }

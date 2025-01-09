@@ -3,12 +3,8 @@ namespace DictionnaireZhFR
 {
     public class CommandNotFoundException : Exception
     {
-        public CommandNotFoundException() : base()
-        {
-        }
+        public CommandNotFoundException() : base(){}
         
-        public CommandNotFoundException(string message) : base(message)
-        {
-        }
+        public CommandNotFoundException(string message) : base(message){}
     }
 }

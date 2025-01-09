@@ -19,7 +19,7 @@ namespace DictionnaireZhFR
             string accentedInput = string.Empty;
             string withoutTones = string.Empty;
 
-            // Si l’entrée correspond à un pattern du type [a-zü\d\s]+ alors appeler ConvertNumericPinyinToAccented
+            // Si l’entrée correspond à un pattern du type [a-zü\d\s]+, soit n'est pas un caractère, alors appeler ConvertNumericPinyinToAccented
             if (Regex.IsMatch(input, @"^[a-zü\d\s]+$"))
             {
                 normalizedInput = input.Trim().ToLower();

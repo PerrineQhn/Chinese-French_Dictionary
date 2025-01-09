@@ -33,21 +33,18 @@ public class GetAllInformationCommand : CommandBase
             {
                 type = ChineseCharacterType.Simplified;
                 results.Add(_localizationService.GetTextArg("Informations pour '{0}' ({1}) :\nLe sinogramme traditionnel est : {2}\nLe pinyin : {3}\nLa traduction : {4}\n", word, type, entry["Trad"], entry["Pinyin"], entry["Translations"]));
-                // results.Add($"Informations pour {word} ({type}) :\nLe sinogramme traditionnel est : {entry["Trad"]}\nLe pinyin : {entry["Pinyin"]}\nLa traduction : {entry["Translations"]}\n");
             }
             
             else if (entry["Trad"].Contains(normalizedInput))
             {
                 type = ChineseCharacterType.Traditional;
                 results.Add(_localizationService.GetTextArg("Informations pour '{0}' ({1}) :\nLe sinogramme simplifié : {2}\nLe pinyin : {3}\nLa traduction : {4}\n", word, type, entry["Simpl"], entry["Pinyin"], entry["Translations"]));
-                // results.Add($"Informations pour {word} ({type}) :\nLe sinogramme simplifié : {entry["Simpl"]}\nLe pinyin : {entry["Pinyin"]}\nLa traduction : {entry["Translations"]}\n");
             }
             
             else if (entry["Pinyin"] == word || entry["Pinyin"] != null && entry["Pinyin"].Split(' ').Contains(word)) 
             {
                 type = ChineseCharacterType.Pinyin;
                 results.Add(_localizationService.GetTextArg("Informations pour '{0}' ({1}) :\nLe sinogramme traditionnel est : {2}\nLe sinogramme simplifié : {3}\nLa traduction : {4}\n", word, type, entry["Trad"], entry["Simpl"], entry["Translations"]));
-                // results.Add($"Informations pour {word} ({type}) :\nLe sinogramme traditionnel est : {entry["Trad"]}\nLe sinogramme simplifié : {entry["Simpl"]}\nLa traduction : {entry["Translations"]}\n");
             }
         }
 

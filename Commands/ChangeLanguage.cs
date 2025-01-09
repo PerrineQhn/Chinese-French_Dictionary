@@ -14,6 +14,6 @@ public class ChangeLanguageCommand : CommandBase
     {
         newLang = input;
         localizationService.ChangeLanguage(newLang);
-        return $"Langue changée en {newLang}.";
+        return _localizationService.GetTextArg("LanguageChanged", newLang);
     }
 }

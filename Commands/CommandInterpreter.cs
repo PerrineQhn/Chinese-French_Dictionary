@@ -35,7 +35,6 @@ public class CommandInterpreter
                 {
                     
                     case "GetSinogram":
-                    // case _localizationService.GetText("GetSinogram"):
                         commandInstance = new GetSinogramCommand(_localizationService);
                         break;
 
@@ -91,6 +90,10 @@ public class CommandInterpreter
                         Console.WriteLine(_localizationService.GetText("Recherche non sauvegardée."));
                     }
                 }
+                if (originalCommand == "ChangeLanguage")
+                {
+                    Console.WriteLine("\n"+result);
+                }
             }
             else if (originalCommand == "Help")
             {
@@ -110,7 +113,7 @@ public class CommandInterpreter
         else
         {
             Console.WriteLine(_localizationService.GetText("Aucune commande spécifiée."));
-            Console.WriteLine("\n"+_localizationService.GetText("Options disponibles : GetSinogram, GetTraditional, GetFrench, Pinyin, GetAllInformation"));
+            Console.WriteLine("\n"+_localizationService.GetText("Options disponibles : GetSinogram, GetTraditional, GetFrench, Pinyin, GetAllInformation, ReadSaveFile, ChangeLanguage, Help"));
             Console.WriteLine(_localizationService.GetText("Exemple : GetSinogram\tbonjour"));
             Console.WriteLine(_localizationService.GetText("Exemple : GetFrench\t你好"));
         }

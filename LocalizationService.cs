@@ -34,7 +34,7 @@ public class LocalizationService
                     { "Recherche sauvegardée avec succès dans Output/searches.txt.", "Recherche sauvegardée avec succès dans Output/searches.txt."},
                     { "Recherche non sauvegardée.", "Recherche non sauvegardée."},
                     { "Aucune commande spécifiée.", "Aucune commande spécifiée."},
-                    { "Options disponibles : GetSinogram, GetTraditional, GetFrench, Pinyin, GetAllInformation", "Options disponibles : ObtenirSinogramme, ObtenirTraditionnel, ObtenirFrancais, ObtenirPinyin, ObtenirToutesInformations"},
+                    { "Options disponibles : GetSinogram, GetTraditional, GetFrench, Pinyin, GetAllInformation, ReadSaveFile, ChangeLanguage, Help", "Options disponibles : ObtenirSinogramme, ObtenirTraditionnel, ObtenirFrancais, ObtenirPinyin, ObtenirToutesInformations, LireFichierSauvegarde, ChangerLangue, Aide"},
                     { "Langue changée en", "Langue changée en"},
                     { "Le fichier JSON existe déjà.", "Le fichier JSON existe déjà."},
                     { "WelcomeMessage", "Bienvenue dans le dictionnaire chinois-français !"},
@@ -78,7 +78,8 @@ public class LocalizationService
                     { "Simplified: {0}, Traditional: {1}, Pinyin: {2}, Translations: {3}", "Simplifié : {0}, Traditionnel : {1}, Pinyin : {2}, Traductions : {3}" },
                     { "EmptyOrInvalidJSON", "Fichier JSON vide ou invalide."},
                     { "JsonCreated", "Fichier JSON créé avec succès" },
-                    { "ErrorSave", "Erreur lors de la sauvegarde du fichier JSON"}
+                    { "ErrorSave", "Erreur lors de la sauvegarde du fichier JSON"},
+                    { "LanguageChanged", "Langue changée en {0}" }
                 }   
             },
             { "en" , new Dictionary<string, string>()
@@ -101,7 +102,7 @@ public class LocalizationService
                     { "Recherche sauvegardée avec succès dans Output/searches.txt.", "Search successfully saved in Output/searches.txt."},
                     { "Recherche non sauvegardée.", "Search not saved."},
                     { "Aucune commande spécifiée.", "No command specified."},
-                    { "Options disponibles : GetSinogram, GetTraditional, GetFrench, Pinyin, GetAllInformation", "Available options: GetSinogram, GetTraditional, GetFrench, GetPinyin, GetAllInformation"},
+                    { "Options disponibles : GetSinogram, GetTraditional, GetFrench, Pinyin, GetAllInformation, ReadSaveFile, ChangeLanguage, Help", "Available options: GetSinogram, GetTraditional, GetFrench, GetPinyin, GetAllInformation, ReadSaveFile, ChangeLanguage, Help"},
                     { "Langue changée en", "Language changed to"},
                     { "Le fichier JSON existe déjà.", "JSON file already exists."},
                     { "WelcomeMessage", "Welcome to the Chinese-French dictionary!"},
@@ -145,7 +146,8 @@ public class LocalizationService
                     { "Simplified: {0}, Traditional: {1}, Pinyin: {2}, Translations: {3}", "Simplified: {0}, Traditional: {1}, Pinyin: {2}, Translations: {3}" },
                     { "EmptyOrInvalidJSON", "Empty or invalid JSON file." },
                     { "JsonCreated", "JSON file successfully created" },
-                    { "ErrorSave", "Error saving JSON file" }
+                    { "ErrorSave", "Error saving JSON file" },
+                    { "LanguageChanged", "Language changed to {0}" }
                 }
             },
 
@@ -169,7 +171,7 @@ public class LocalizationService
                     { "Recherche sauvegardée avec succès dans Output/searches.txt.", "搜索已成功保存在Output/searches.txt中。" },
                     { "Recherche non sauvegardée.", "搜索未保存。" },
                     { "Aucune commande spécifiée.", "未指定任何命令。" },
-                    { "Options disponibles : GetSinogram, GetTraditional, GetFrench, Pinyin, GetAllInformation", "可用选项：获取汉字，获取繁体，获取法文，获取拼音，获取所有信息" },
+                    { "Options disponibles : GetSinogram, GetTraditional, GetFrench, Pinyin, GetAllInformation, ReadSaveFile, ChangeLanguage, Help", "可用选项：获取汉字，获取繁体，获取法文，获取拼音，获取所有信息, 读取保存文件, 更改语言, 帮助" },
                     { "Langue changée en", "语言更改为" },
                     { "Le fichier JSON existe déjà.", "JSON文件已存在。" },
                     { "WelcomeMessage", "欢迎使用中法词典！" },
@@ -212,7 +214,8 @@ public class LocalizationService
                     { "Simplified: {0}, Traditional: {1}, Pinyin: {2}, Translations: {3}", "简化：{0}，繁体：{1}，拼音：{2}，翻译：{3}" },
                     { "EmptyOrInvalidJSON", "空或无效的JSON文件。" },
                     { "JsonCreated", "JSON文件创建成功" },
-                    { "ErrorSave", "保存JSON文件时出错" }
+                    { "ErrorSave", "保存JSON文件时出错" },
+                    { "LanguageChanged", "语言更改为{0}" }
                 }
             }
         };

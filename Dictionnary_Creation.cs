@@ -83,7 +83,6 @@ class Dictionnary_Creation
         catch (Exception ex)
         {
             Console.WriteLine(_localizationService.GetText("ErrorSave") + $" : {ex.Message}");
-            Console.WriteLine($"Erreur lors de la sauvegarde du fichier JSON : {ex.Message}");
         }
     }
 }

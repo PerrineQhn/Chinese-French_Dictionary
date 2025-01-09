@@ -39,7 +39,7 @@
                                 localizationService.GetText("GetAllInformation") + ", " +
                                 localizationService.GetText("ChangeLanguage") + ", " +
                                 localizationService.GetText("ReadSaveFile") + ", " +
-                                localizationService.GetText("help"));
+                                localizationService.GetText("Help"));
 
                 // Lire la commande de l'utilisateur
                 string command = Console.ReadLine();
